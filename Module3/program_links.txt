@@ -1,0 +1,8 @@
+SSH client
+https://mobaxterm.mobatek.net/download.html
+
+Виртуализация (гипервизор)
+https://www.virtualbox.org/wiki/Downloads
+
+Образ Ubuntu Server 24.04
+https://files.sberdisk.ru/s/Alo2VnhBtKhPfHz
