@@ -1,0 +1,10 @@
+*.tmp
+*.py[cod]
+*.exe
+.vscode/
+.env
+env/
+*env
+__pycache__/
+temp/
+
