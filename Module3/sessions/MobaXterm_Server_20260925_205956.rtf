@@ -1,0 +1,144 @@
+{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fmodern Consolas;}{\f1\fnil\fcharset129 Courier New;}}
+{\colortbl ;\red154\green100\blue122;\red243\green203\blue219;\red153\green146\blue77;\red110\green150\blue30;\red166\green25\blue76;\red85\green85\blue85;\red116\green86\blue170;}
+\viewkind4\uc1\pard\f0\fs20 student@server:~/ansible-lab$ ansible server-1 --become -m apt -a "name=duf state=present"\cf1\highlight2 
+\par \cf3\highlight0 server-1 | CHANGED => \{\cf1\highlight2 
+\par \cf3\highlight0     "cache_update_time": 1790349859,\cf1\highlight2 
+\par \cf3\highlight0     "cache_updated": false,\cf1\highlight2 
+\par \cf3\highlight0     "changed": true,\cf1\highlight2 
+\par \cf3\highlight0     "stderr": "debconf: delaying package configuration, since apt-utils is not installed\\n",\cf1\highlight2 
+\par \cf3\highlight0     "stderr_lines": [\cf1\highlight2 
+\par \cf3\highlight0         "debconf: delaying package configuration, since apt-utils is not installed"\cf1\highlight2 
+\par \cf3\highlight0     ],\cf1\highlight2 
+\par \cf3\highlight0     "stdout": "Reading package lists...\\nBuilding dependency tree...\\nReading state information...\\nThe following NEW packages will be installed:\\n  duf\\n0 upgraded, 1 newly installed, 0 to remove and 123 not upgraded.\\nNeed to get 900 kB of archives.\\nAfter this operation, 2351 kB of additional disk space will be used.\\nGet:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 duf amd64 0.8.1-1ubuntu0.24.04.3 [900 kB]\\nFetched 900 kB in 3s (332 kB/s)\\nSelecting previously unselected package duf.\\r\\n(Reading database ... \\r(Reading database ... 5%\\r(Reading database ... 10%\\r(Reading database ... 15%\\r(Reading database ... 20%\\r(Reading database ... 25%\\r(Reading database ... 30%\\r(Reading database ... 35%\\r(Reading database ... 40%\\r(Reading database ... 45%\\r(Reading database ... 50%\\r(Reading database ... 55%\\r(Reading database ... 60%\\r(Reading database ... 65%\\r(Reading database ... 70%\\r(Reading database ... 75%\\r(Reading database ... 80%\\r(Reading database ... 85%\\r(Reading database ... 90%\\r(Reading database ... 95%\\r(Reading database ... 100%\\r(Reading database ... 141195 files and directories currently installed.)\\r\\nPreparing to unpack .../duf_0.8.1-1ubuntu0.24.04.3_amd64.deb ...\\r\\nUnpacking duf (0.8.1-1ubuntu0.24.04.3) ...\\r\\nSetting up duf (0.8.1-1ubuntu0.24.04.3) ...\\r\\n\\nPending kernel upgrade!\\nRunning kernel version:\\n  6.8.0-35-generic\\nDiagnostics:\\n  The currently running kernel version is not the expected kernel version 6.8.0-142-generic.\\n\\nRestarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.\\n\\nRestarting services...\\n\\nService restarts being deferred:\\n /etc/needrestart/restart.d/dbus.service\\n systemctl restart docker.service\\n systemctl restart getty@tty1.service\\n systemctl restart systemd-logind.service\\n systemctl restart unattended-upgrades.service\\n\\nNo containers need to be restarted.\\n\\nUser sessions running outdated binaries:\\n student @ session #1: sshd[1196,1254]\\n student @ session #2: sshd[1198,1255]\\n student @ user manager service: systemd[1202]\\n\\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\\n",\cf1\highlight2 
+\par \cf3\highlight0     "stdout_lines": [\cf1\highlight2 
+\par \cf3\highlight0         "Reading package lists...",\cf1\highlight2 
+\par \cf3\highlight0         "Building dependency tree...",\cf1\highlight2 
+\par \cf3\highlight0         "Reading state information...",\cf1\highlight2 
+\par \cf3\highlight0         "The following NEW packages will be installed:",\cf1\highlight2 
+\par \cf3\highlight0         "  duf",\cf1\highlight2 
+\par \cf3\highlight0         "0 upgraded, 1 newly installed, 0 to remove and 123 not upgraded.",\cf1\highlight2 
+\par \cf3\highlight0         "Need to get 900 kB of archives.",\cf1\highlight2 
+\par \cf3\highlight0         "After this operation, 2351 kB of additional disk space will be used.",\cf1\highlight2 
+\par \cf3\highlight0         "Get:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 duf amd64 0.8.1-1ubuntu0.24.04.3 [900 kB]",\cf1\highlight2 
+\par \cf3\highlight0         "Fetched 900 kB in 3s (332 kB/s)",\cf1\highlight2 
+\par \cf3\highlight0         "Selecting previously unselected package duf.",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... ",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 5%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 10%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 15%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 20%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 25%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 30%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 35%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 40%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 45%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 50%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 55%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 60%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 65%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 70%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 75%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 80%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 85%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 90%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 95%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 100%",\cf1\highlight2 
+\par \cf3\highlight0         "(Reading database ... 141195 files and directories currently installed.)",\cf1\highlight2 
+\par \cf3\highlight0         "Preparing to unpack .../duf_0.8.1-1ubuntu0.24.04.3_amd64.deb ...",\cf1\highlight2 
+\par \cf3\highlight0         "Unpacking duf (0.8.1-1ubuntu0.24.04.3) ...",\cf1\highlight2 
+\par \cf3\highlight0         "Setting up duf (0.8.1-1ubuntu0.24.04.3) ...",\cf1\highlight2 
+\par \cf3\highlight0         "",\cf1\highlight2 
+\par \cf3\highlight0         "Pending kernel upgrade!",\cf1\highlight2 
+\par \cf3\highlight0         "Running kernel version:",\cf1\highlight2 
+\par \cf3\highlight0         "  6.8.0-35-generic",\cf1\highlight2 
+\par \cf3\highlight0         "Diagnostics:",\cf1\highlight2 
+\par \cf3\highlight0         "  The currently running kernel version is not the expected kernel version 6.8.0-142-generic.",\cf1\highlight2 
+\par \cf3\highlight0         "",\cf1\highlight2 
+\par \cf3\highlight0         "Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.",\cf1\highlight2 
+\par \cf3\highlight0         "",\cf1\highlight2 
+\par \cf3\highlight0         "Restarting services...",\cf1\highlight2 
+\par \cf3\highlight0         "",\cf1\highlight2 
+\par \cf3\highlight0         "Service restarts being deferred:",\cf1\highlight2 
+\par \cf3\highlight0         " /etc/needrestart/restart.d/dbus.service",\cf1\highlight2 
+\par \cf3\highlight0         " systemctl restart docker.service",\cf1\highlight2 
+\par \cf3\highlight0         " systemctl restart getty@tty1.service",\cf1\highlight2 
+\par \cf3\highlight0         " systemctl restart systemd-logind.service",\cf1\highlight2 
+\par \cf3\highlight0         " systemctl restart unattended-upgrades.service",\cf1\highlight2 
+\par \cf3\highlight0         "",\cf1\highlight2 
+\par \cf3\highlight0         "No containers need to be restarted.",\cf1\highlight2 
+\par \cf3\highlight0         "",\cf1\highlight2 
+\par \cf3\highlight0         "User sessions running outdated binaries:",\cf1\highlight2 
+\par \cf3\highlight0         " student @ session #1: sshd[1196,1254]",\cf1\highlight2 
+\par \cf3\highlight0         " student @ session #2: sshd[1198,1255]",\cf1\highlight2 
+\par \cf3\highlight0         " student @ user manager service: systemd[1202]",\cf1\highlight2 
+\par \cf3\highlight0         "",\cf1\highlight2 
+\par \cf3\highlight0         "No VM guests are running outdated hypervisor (qemu) binaries on this host."\cf1\highlight2 
+\par \cf3\highlight0     ]\cf1\highlight2 
+\par \cf3\highlight0\}\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ duf\cf1\highlight2 
+\par \cf0\highlight0\u9581?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9582?\cf1\highlight2 
+\par \cf0\highlight0\u9474? 4 local devices                                                                                      \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9500?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9508?\cf1\highlight2 
+\par \cf0\highlight0\u9474? MOUNTED ON           \u9474?   SIZE \u9474?   USED \u9474? AVAIL \u9474?         USE%        \u9474? TYPE   \u9474? FILESYSTEM           \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9500?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9508?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /                    \u9474?  97.9G \u9474?   7.8G \u9474? 85.1G \u9474? [..........]   8.0% \u9474? ext4   \u9474? /dev/ubuntu--vg-ubun \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474?                      \u9474?        \u9474?        \u9474?       \u9474?                     \u9474?        \u9474? tu-/lv               \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /boot                \u9474?   1.9G \u9474? 189.5M \u9474?  1.6G \u9474? [..........]   9.7% \u9474? ext4   \u9474? /dev/sda2            \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /home/student/folder \u9474? 256.3G \u9474? 187.0G \u9474? 69.4G \u9474? [#######...]  72.9% \u9474? vboxsf \u9474? share                \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /media/sf_share      \u9474? 256.3G \u9474? 187.0G \u9474? 69.4G \u9474? [#######...]  72.9% \u9474? vboxsf \u9474? share                \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9584?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9583?\cf1\highlight2 
+\par \cf0\highlight0\u9581?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9582?\cf1\highlight2 
+\par \cf0\highlight0\u9474? 6 special devices                                                                       \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9500?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9516?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9508?\cf1\highlight2 
+\par \cf0\highlight0\u9474? MOUNTED ON     \u9474?   SIZE \u9474?   USED \u9474?  AVAIL \u9474?         USE%        \u9474? TYPE     \u9474? FILESYSTEM \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9500?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9532?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9508?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /dev           \u9474? 948.8M \u9474?     0B \u9474? 948.8M \u9474?                     \u9474? devtmpfs \u9474? udev       \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /dev/shm       \u9474? 983.9M \u9474?     0B \u9474? 983.9M \u9474?                     \u9474? tmpfs    \u9474? tmpfs      \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /run           \u9474? 196.8M \u9474? 812.0K \u9474? 196.0M \u9474? [..........]   0.4% \u9474? tmpfs    \u9474? tmpfs      \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /run/lock      \u9474?   5.0M \u9474?     0B \u9474?   5.0M \u9474?                     \u9474? tmpfs    \u9474? tmpfs      \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /run/user/1000 \u9474? 196.8M \u9474?  12.0K \u9474? 196.8M \u9474? [..........]   0.0% \u9474? tmpfs    \u9474? tmpfs      \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9474? /run/user/1001 \u9474? 196.8M \u9474?  12.0K \u9474? 196.8M \u9474? [..........]   0.0% \u9474? tmpfs    \u9474? tmpfs      \u9474?\cf1\highlight2 
+\par \cf0\highlight0\u9584?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9524?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9583?\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ ansible server-1 --become -m apt -a "name=htop state=present"\cf1\highlight2 
+\par \cf4\highlight0 server-1 | SUCCESS => \{\cf1\highlight2 
+\par \cf4\highlight0     "cache_update_time": 1790349859,\cf1\highlight2 
+\par \cf4\highlight0     "cache_updated": false,\cf1\highlight2 
+\par \cf4\highlight0     "changed": false\cf1\highlight2 
+\par \cf4\highlight0\}\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ groups ansuser\cf1\highlight2 
+\par \cf0\highlight0 ansuser : ansuser users\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ sudo ansuser\cf1\highlight2 
+\par \cf0\highlight0 sudo: ansuser: command not found\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ su ansuser\cf1\highlight2 
+\par \cf0\highlight0 Password:\cf1\highlight2 
+\par \cf0\highlight0 ansuser@server:/home/student/ansible-lab$ sudo groupadd new-group\cf1\highlight2 
+\par \cf0\highlight0 ansuser@server:/home/student/ansible-lab$ exit\cf1\highlight2 
+\par \cf0\highlight0 exit\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ sudo visudo\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ sudo usermod -aG sudo ansuser\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ groups ansuser\cf1\highlight2 
+\par \cf0\highlight0 ansuser : ansuser sudo users\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ ansible server-1 --become -m apt -a "name=htop state=present"\cf1\highlight2 
+\par \cf4\highlight0 server-1 | SUCCESS => \{\cf1\highlight2 
+\par \cf4\highlight0     "cache_update_time": 1790349859,\cf1\highlight2 
+\par \cf4\highlight0     "cache_updated": false,\cf1\highlight2 
+\par \cf4\highlight0     "changed": false\cf1\highlight2 
+\par \cf4\highlight0\}\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/ansible-lab$ sudo poweroff\cf1\highlight2 
+\par 
+\par \cf0\highlight0 Broadcast message from root@server.corp10.un on pts/1 (Fri 2026-09-25 20:59:49 MSK):\cf1\highlight2 
+\par 
+\par \cf0\highlight0 The system will power off now!\cf1\highlight2 
+\par 
+\par \cf0\highlight0 student@server:~/ansible-lab$\cf1\highlight2 
+\par \cf5\highlight0 Remote side unexpectedly closed network connection\cf1\highlight2 
+\par 
+\par \cf6\highlight0\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\cf1\highlight2 
+\par 
+\par \cf5\highlight0 Session stopped\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf7 <Return>\cf0  to exit tab\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf7 R\cf0  to restart session\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf7 S\cf0  to save terminal output to file\cf1\highlight2 
+\par \pard\cf0\highlight0\f1\fs16 
+\par }
+ 
