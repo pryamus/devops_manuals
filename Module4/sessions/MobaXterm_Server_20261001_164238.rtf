@@ -1,0 +1,141 @@
+{\rtf1\ansi\ansicpg1251\deff0\deflang1049{\fonttbl{\f0\fmodern Consolas;}{\f1\fmodern\fcharset204 Consolas;}{\f2\fnil\fcharset129 Courier New;}}
+{\colortbl ;\red85\green111\blue100;\red191\green211\blue203;\red85\green85\blue85;\red227\green247\blue247;\red133\green160\blue160;\red81\green136\blue145;\red153\green146\blue77;\red166\green25\blue76;\red116\green86\blue170;}
+\viewkind4\uc1\pard\f0\fs20 student@server:~/labs/build_docker_container$ docker container ls\cf1\highlight2 
+\par \cf0\highlight0 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker images\cf1\highlight2 
+\par \cf0\highlight0                                                                                                                \cf3\highlight4 i\cf0\highlight0  \cf5 Info \u8594? \cf0  \cf1\highlight4  U \cf0\highlight0  In Use\cf1\highlight2 
+\par \cf0\highlight0\b IMAGE\b0                 \b ID\b0              \b DISK USAGE\b0    \b CONTENT SIZE\b0    \b EXTRA\cf1\highlight2\b0 
+\par \cf6\highlight0 hello-world:latest\cf0    5e2309035332       25.9kB         9.49kB\cf1\highlight2 
+\par \cf6\highlight0 py-app:latest\cf0         e335e866bdef        200MB         48.9MB\cf1\highlight2 
+\par \cf6\highlight0 py-app:v1\cf0             853a65846947        200MB         48.9MB\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ ls\cf1\highlight2 
+\par \cf0\highlight0 Dockerfile  app.py  requirements.txt\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ vim Dockerfile\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker build --no-cache --progress=plain .\cf1\highlight2 
+\par \cf0\highlight0 #0 building with "default" instance using docker driver\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #1 [internal] load build definition from Dockerfile\cf1\highlight2 
+\par \cf0\highlight0 #1 transferring dockerfile: 608B done\cf1\highlight2 
+\par \cf0\highlight0 #1 DONE 0.0s\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #2 [internal] load metadata for docker.io/library/python:3.14-slim\cf1\highlight2 
+\par \cf0\highlight0 #2 DONE 0.9s\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #3 [internal] load .dockerignore\cf1\highlight2 
+\par \cf0\highlight0 #3 transferring context: 2B done\cf1\highlight2 
+\par \cf0\highlight0 #3 DONE 0.0s\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #4 [1/4] FROM docker.io/library/python:3.14-slim@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d\cf1\highlight2 
+\par \cf0\highlight0 #4 resolve docker.io/library/python:3.14-slim@sha256:51dafde81dbdb6ebde285137a295cf18a47ca95234fe388a343719cb97305b3d 0.0s done\cf1\highlight2 
+\par \cf0\highlight0 #4 DONE 0.0s\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #5 [2/4] WORKDIR = /app\cf1\highlight2 
+\par \cf0\highlight0 #5 CACHED\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #6 [internal] load build context\cf1\highlight2 
+\par \cf0\highlight0 #6 transferring context: 93B done\cf1\highlight2 
+\par \cf0\highlight0 #6 DONE 0.0s\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #7 [3/4] COPY . .\cf1\highlight2 
+\par \cf0\highlight0 #7 DONE 0.0s\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #8 [4/4] RUN pip install --no-cache-dir -r requirements.txt --index-url https://pypi-mirror.gitverse.ru/simple/\cf1\highlight2 
+\par \cf0\highlight0 #8 4.096 Looking in indexes: https://pypi-mirror.gitverse.ru/simple/\cf1\highlight2 
+\par \cf0\highlight0 #8 4.864 Collecting flask==3.1.3 (from -r requirements.txt (line 1))\cf1\highlight2 
+\par \cf0\highlight0 #8 5.647   Downloading flask-3.1.3-py3-none-any.whl (103 kB)\cf1\highlight2 
+\par \cf0\highlight0 #8 8.529 Collecting blinker>=1.9.0 (from flask==3.1.3->-r requirements.txt (line 1))\cf1\highlight2 
+\par \cf0\highlight0 #8 9.825   Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)\cf1\highlight2 
+\par \cf0\highlight0 #8 10.40 Collecting click>=8.1.3 (from flask==3.1.3->-r requirements.txt (line 1))\cf1\highlight2 
+\par \cf0\highlight0 #8 11.58   Downloading click-8.5.0-py3-none-any.whl (125 kB)\cf1\highlight2 
+\par \cf0\highlight0 #8 19.48 Collecting itsdangerous>=2.2.0 (from flask==3.1.3->-r requirements.txt (line 1))\cf1\highlight2 
+\par \cf0\highlight0 #8 20.63   Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)\cf1\highlight2 
+\par \cf0\highlight0 #8 20.90 Collecting jinja2>=3.1.2 (from flask==3.1.3->-r requirements.txt (line 1))\cf1\highlight2 
+\par \cf0\highlight0 #8 21.03   Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)\cf1\highlight2 
+\par \cf0\highlight0 #8 22.95 Collecting markupsafe>=2.1.1 (from flask==3.1.3->-r requirements.txt (line 1))\cf1\highlight2 
+\par \cf0\highlight0 #8 23.14   Downloading markupsafe-3.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (23 kB)\cf1\highlight2 
+\par \cf0\highlight0 #8 23.87 Collecting werkzeug>=3.1.0 (from flask==3.1.3->-r requirements.txt (line 1))\cf1\highlight2 
+\par \cf0\highlight0 #8 24.00   Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)\cf1\highlight2 
+\par \cf0\highlight0 #8 27.16 Installing collected packages: markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, flask\cf1\highlight2 
+\par \cf0\highlight0 #8 27.85\cf1\highlight2 
+\par \cf0\highlight0 #8 27.85 Successfully installed blinker-1.9.0 click-8.5.0 flask-3.1.3 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.3 werkzeug-3.1.9\cf1\highlight2 
+\par \cf0\highlight0 #8 27.85 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.\cf1\highlight2 
+\par \cf0\highlight0 #8 DONE 28.0s\cf1\highlight2 
+\par 
+\par \cf0\highlight0 #9 exporting to image\cf1\highlight2 
+\par \cf0\highlight0 #9 exporting layers\cf1\highlight2 
+\par \cf0\highlight0 #9 exporting layers 0.9s done\cf1\highlight2 
+\par \cf0\highlight0 #9 exporting manifest sha256:3dd4f79f0edcbb581d51914e0b022adfcb0a578f9f1507c299487f29e1aaa00d\cf1\highlight2 
+\par \cf0\highlight0 #9 exporting manifest sha256:3dd4f79f0edcbb581d51914e0b022adfcb0a578f9f1507c299487f29e1aaa00d done\cf1\highlight2 
+\par \cf0\highlight0 #9 exporting config sha256:2ba59a30acec2136de621ea9f82fc17469b4fe721ea17dcd8a2c37e101ec5b0b 0.0s done\cf1\highlight2 
+\par \cf0\highlight0 #9 exporting attestation manifest sha256:467428ea9e04d236652587349d7763befe817f34efcbb29369dc8c832049b224 0.0s done\cf1\highlight2 
+\par \cf0\highlight0 #9 exporting manifest list sha256:998ce02bd7c1e0d14d21ce27410b0984711118ffde37e17ba9c37281f0639a6b 0.0s done\cf1\highlight2 
+\par \cf0\highlight0 #9 naming to moby-dangling@sha256:998ce02bd7c1e0d14d21ce27410b0984711118ffde37e17ba9c37281f0639a6b done\cf1\highlight2 
+\par \cf0\highlight0 #9 unpacking to moby-dangling@sha256:998ce02bd7c1e0d14d21ce27410b0984711118ffde37e17ba9c37281f0639a6b\cf1\highlight2 
+\par \cf0\highlight0 #9 unpacking to moby-dangling@sha256:998ce02bd7c1e0d14d21ce27410b0984711118ffde37e17ba9c37281f0639a6b 0.3s done\cf1\highlight2 
+\par \cf0\highlight0 #9 DONE 1.3s\cf1\highlight2 
+\par 
+\par \cf0\highlight0  \cf7 1 warning found (use docker --debug to expand):\cf1\highlight2 
+\par \cf0\highlight0  - WorkdirRelativePath: Relative workdir "= /app" can have unexpected results if the base image changes (line 5)\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ vim Dockerfile\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ cat Dockerfile\cf1\highlight2 
+\par \cf0\highlight0\f1 # \'c8\'f1\'ef\'ee\'eb\'fc\'e7\'f3\'e5\'ec \'ee\'f4\'e8\'f6\'e8\'e0\'eb\'fc\'ed\'fb\'e5 \'ee\'e1\'f0\'e0\'e7 \'e8\'e7 Docker Hub\cf1\highlight2\f0 
+\par \cf0\highlight0 FROM python:3.14-slim\cf1\highlight2 
+\par 
+\par \cf0\highlight0\f1 # \'d3\'f1\'f2\'e0\'ed\'e0\'e2\'eb\'e8\'e2\'e0\'e5\'ec \'f0\'e0\'e1\'ee\'f7\'f3\'fe \'e4\'e8\'f0\'e5\'ea\'f2\'ee\'f0\'e8\'fe \'e2 \'ea\'ee\'ed\'f2\'e5\'e9\'ed\'e5\'f0\'e5\cf1\highlight2\f0 
+\par \cf0\highlight0 WORKDIR = /app\cf1\highlight2 
+\par 
+\par \cf0\highlight0\f1 # \'ca\'ee\'ef\'e8\'f0\'f3\'e5\'ec \'f4\'e0\'e9\'eb\'fb \'ef\'f0\'ee\'e5\'ea\'f2\'e0 \'e2 \'ea\'ee\'ed\'f2\'e5\'e9\'ed\'e5\'f0 source_path dest_path\cf1\highlight2\f0 
+\par \cf0\highlight0 COPY . .\cf1\highlight2 
+\par 
+\par \cf0\highlight0\f1 # \'d3\'f1\'f2\'e0\'ed\'e0\'e2\'eb\'e8\'e2\'e0\'e5\'ec \'e7\'e0\'e2\'e8\'f1\'e8\'ec\'ee\'f1\'f2\'e8\cf1\highlight2\f0 
+\par \cf0\highlight0 RUN pip install --no-cache-dir -r requirements.txt --index-url https://pypi-mirror.gitverse.ru/simple/\cf1\highlight2 
+\par 
+\par \cf0\highlight0\f1 # \'ce\'f2\'ea\'f0\'fb\'e2\'e0\'e5\'ec \'ef\'ee\'f0\'f2\cf1\highlight2\f0 
+\par \cf0\highlight0 EXPOSE 5000\cf1\highlight2 
+\par 
+\par \cf0\highlight0\f1 # \'c7\'e0\'ef\'f3\'f1\'ea\'e0\'e5\'ec \'ef\'f0\'e8\'eb\'ee\'e6\'e5\'ed\'e8\'e5\cf1\highlight2\f0 
+\par \cf0\highlight0 CMD ["python3", "app.py"]\cf1\highlight2 
+\par 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker ps\cf1\highlight2 
+\par \cf0\highlight0 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker container ls -a\cf1\highlight2 
+\par \cf0\highlight0 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker run -d -p 5000:5000 --name hello_flask py-app:v1\cf1\highlight2 
+\par \cf0\highlight0 dd3560b9370565e95e244346f0f61669ee1b0db4520d53853880a4b5cd0665e5\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker start hello_flask\cf1\highlight2 
+\par \cf0\highlight0 Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint hello_flask (227bfc340a374494d560225f2d5bc36249447de5eb723fa7c4dd0d0933c70d87): Bind for 0.0.0.0:5000 failed: port is already allocated\cf1\highlight2 
+\par \cf0\highlight0 failed to start containers: hello_flask\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker start hello_flask --port 5002\cf1\highlight2 
+\par \cf0\highlight0 unknown flag: --port\cf1\highlight2 
+\par 
+\par \cf0\highlight0 Usage:  docker start [OPTIONS] CONTAINER [CONTAINER...]\cf1\highlight2 
+\par 
+\par \cf0\highlight0 Run 'docker start --help' for more information\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker start hello_flask\cf1\highlight2 
+\par \cf0\highlight0 hello_flask\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker ps -a\cf1\highlight2 
+\par \cf0\highlight0 CONTAINER ID   IMAGE                                       COMMAND                  CREATED          STATUS                        PORTS                                         NAMES\cf1\highlight2 
+\par \cf0\highlight0 7304fccb0046   py-app:v1                                   "python3 app.py"         18 minutes ago   Exited (137) 21 seconds ago                                                 dockge_flask\cf1\highlight2 
+\par \cf0\highlight0\f1 73f12a85c78a   dockerhub.timeweb.cloud/louislam/dockge:1   "/usr/bin/dumb-init \'85"   43 minutes ago   Up 43 minutes (healthy)       0.0.0.0:5001->5001/tcp, [::]:5001->5001/tcp   dockge-dockge-1\cf1\highlight2\f0 
+\par \cf0\highlight0 dd3560b93705   py-app:v1                                   "python3 app.py"         2 hours ago      Up 15 seconds                                                               hello_flask\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ docker stop hello_flask\cf1\highlight2 
+\par \cf0\highlight0 hello_flask\cf1\highlight2 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$ sudo poweroff\cf1\highlight2 
+\par \cf0\highlight0 [sudo] password for student:\cf1\highlight2 
+\par 
+\par \cf0\highlight0 Broadcast message from root@server.corp10.un on pts/1 (Thu 2026-10-01 16:40:39 MSK):\cf1\highlight2 
+\par 
+\par \cf0\highlight0 The system will power off now!\cf1\highlight2 
+\par 
+\par \cf0\highlight0 student@server:~/labs/build_docker_container$\cf1\highlight2 
+\par \cf8\highlight0 Remote side unexpectedly closed network connection\cf1\highlight2 
+\par 
+\par \cf3\highlight0\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\u9472?\cf1\highlight2 
+\par 
+\par \cf8\highlight0 Session stopped\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf9 <Return>\cf0  to exit tab\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf9 R\cf0  to restart session\cf1\highlight2 
+\par \cf0\highlight0     - Press \cf9 S\cf0  to save terminal output to file\cf1\highlight2 
+\par \pard\cf0\highlight0\f2\fs16 
+\par }
+ 
