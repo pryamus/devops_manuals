@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+   - name: Проверить доступность
+     ping:
+

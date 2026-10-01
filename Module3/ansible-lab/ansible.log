@@ -1,0 +1,688 @@
+2026-09-25 19:18:46,731 p=80441 u=student n=ansible INFO| {
+    "_meta": {
+        "hostvars": {
+            "gate-1": {
+                "ansible_host": "192.168.10.1",
+                "ansible_python_interpreter": "/usr/bin/python3",
+                "ansible_user": "ansuser"
+            },
+            "server-1": {
+                "ansible_host": "192.168.10.10",
+                "ansible_python_interpreter": "/usr/bin/python3",
+                "ansible_user": "ansuser"
+            }
+        },
+        "profile": "inventory_legacy"
+    },
+    "all": {
+        "children": [
+            "ungrouped",
+            "my_servers"
+        ]
+    },
+    "my_servers": {
+        "hosts": [
+            "gate-1",
+            "server-1"
+        ]
+    }
+}
+2026-09-25 19:19:20,802 p=80636 u=student n=ansible INFO| server-1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-09-25 19:19:20,846 p=80636 u=student n=ansible INFO| gate-1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-09-25 19:23:30,334 p=82240 u=student n=ansible INFO| {
+    "_meta": {
+        "hostvars": {
+            "gate-1": {
+                "ansible_host": "192.168.10.1",
+                "ansible_python_interpreter": "/usr/bin/python3"
+            },
+            "server-1": {
+                "ansible_host": "192.168.10.10",
+                "ansible_python_interpreter": "/usr/bin/python3"
+            }
+        },
+        "profile": "inventory_legacy"
+    },
+    "all": {
+        "children": [
+            "ungrouped"
+        ]
+    },
+    "ungrouped": {
+        "hosts": [
+            "gate-1",
+            "server-1"
+        ]
+    }
+}
+2026-09-25 19:24:12,561 p=82477 u=student n=ansible INFO| server-1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-09-25 19:24:12,571 p=82477 u=student n=ansible INFO| gate-1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+2026-09-25 19:25:18,823 p=82955 u=student n=ansible INFO| gate-1 | CHANGED | rc=0 >>
+NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda                         8:0    0  500G  0 disk 
+├─sda1                      8:1    0    1M  0 part 
+├─sda2                      8:2    0    2G  0 part /boot
+└─sda3                      8:3    0  498G  0 part 
+  └─ubuntu--vg-ubuntu--lv 252:0    0  100G  0 lvm  /
+sr0                        11:0    1 1024M  1 rom  
+
+2026-09-25 19:25:18,824 p=82955 u=student n=ansible INFO| server-1 | CHANGED | rc=0 >>
+NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda                         8:0    0  500G  0 disk 
+├─sda1                      8:1    0    1M  0 part 
+├─sda2                      8:2    0    2G  0 part /boot
+└─sda3                      8:3    0  498G  0 part 
+  └─ubuntu--vg-ubuntu--lv 252:0    0  100G  0 lvm  /
+sr0                        11:0    1 1024M  0 rom  
+
+2026-09-25 19:35:17,728 p=86587 u=student n=ansible INFO| playbook: playbooks/ping.yaml
+2026-09-25 19:35:56,222 p=86824 u=student n=ansible ERROR| [ERROR]: the playbook: ping.yaml could not be found
+
+2026-09-25 19:36:08,166 p=86893 u=student n=ansible INFO| PLAY [all] ************************************************************************************************************************
+2026-09-25 19:36:08,188 p=86893 u=student n=ansible INFO| TASK [Gathering Facts] ************************************************************************************************************
+2026-09-25 19:36:11,519 p=86893 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 19:36:11,607 p=86893 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 19:36:11,615 p=86893 u=student n=ansible INFO| TASK [Проверить доступность] ******************************************************************************************************
+2026-09-25 19:36:12,799 p=86893 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 19:36:12,811 p=86893 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 19:36:12,815 p=86893 u=student n=ansible INFO| PLAY RECAP ************************************************************************************************************************
+2026-09-25 19:36:12,816 p=86893 u=student n=ansible INFO| gate-1                     : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25 19:36:12,816 p=86893 u=student n=ansible INFO| server-1                   : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25 19:53:09,584 p=93219 u=student n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-09-25 19:53:09,584 p=93219 u=student n=ansible INFO| [DEPRECATION WARNING]: File '/home/student/ansible-lab/playbooks/setup_gate.yaml' could not be decoded as 'utf-8'. Invalid content has been escaped. This feature will be removed from ansible-core version 2.23. This file must be UTF-8 encoded.
+
+2026-09-25 19:53:09,586 p=93219 u=student n=ansible ERROR| [ERROR]: YAML parsing failed: 'utf-8' codec can't encode characters in position 12-20: surrogates not allowed
+Origin: /home/student/ansible-lab/playbooks/setup_gate.yaml
+
+
+2026-09-25 19:54:04,899 p=93575 u=student n=ansible ERROR| [ERROR]: YAML parsing failed: Colons in unquoted values must be followed by a non-space character.
+Origin: /home/student/ansible-lab/playbooks/setup_gate.yaml:2:27
+
+1 ---
+2 - name: Настройка серверка: пользователь, пакеты и конфиг
+                            ^ column 27
+
+
+For example:
+
+    raw: echo 'name: ansible'
+
+Should be:
+
+    raw: "echo 'name: ansible'"
+
+
+2026-09-25 19:55:08,844 p=93979 u=student n=ansible INFO| playbook: playbooks/setup_gate.yaml
+2026-09-25 19:56:10,027 p=94370 u=student n=ansible INFO| ansible-playbook [core 2.21.4]
+  config file = /home/student/ansible-lab/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0] (/usr/bin/python3)
+  jinja version = 3.1.2
+  pyyaml version = 6.0.1 (with libyaml v0.2.5)
+2026-09-25 19:56:10,027 p=94370 u=student n=ansible INFO| Using /home/student/ansible-lab/ansible.cfg as config file
+2026-09-25 19:56:10,455 p=94370 u=student n=ansible INFO| Skipping callback 'minimal', as we already have a stdout callback.
+2026-09-25 19:56:10,456 p=94370 u=student n=ansible INFO| Skipping callback 'oneline', as we already have a stdout callback.
+2026-09-25 19:56:10,456 p=94370 u=student n=ansible INFO| PLAYBOOK: setup_gate.yaml ***************************************************************************************
+2026-09-25 19:56:10,456 p=94370 u=student n=ansible INFO| 1 plays in playbooks/setup_gate.yaml
+2026-09-25 19:56:10,459 p=94370 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 19:56:10,469 p=94370 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 19:56:10,469 p=94370 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:2
+2026-09-25 19:56:13,079 p=94370 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 19:56:13,150 p=94370 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 19:56:13,158 p=94370 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 19:56:13,158 p=94370 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:7
+2026-09-25 19:56:14,548 p=94370 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: useradd: Permission denied.
+useradd: cannot lock /etc/group; try again later.
+
+Origin: /home/student/ansible-lab/playbooks/setup_gate.yaml:7:7
+
+5   
+6   tasks:
+7     - name: Создание пользователя admin_user
+        ^ column 7
+
+
+2026-09-25 19:56:14,550 p=94370 u=student n=ansible INFO| fatal: [gate-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 19:56:14,565 p=94370 u=student n=ansible INFO| fatal: [server-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 19:56:14,568 p=94370 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 19:56:14,568 p=94370 u=student n=ansible INFO| gate-1                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 19:56:14,568 p=94370 u=student n=ansible INFO| server-1                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 19:58:38,019 p=95447 u=student n=ansible INFO| ansible-playbook [core 2.21.4]
+  config file = /home/student/ansible-lab/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0] (/usr/bin/python3)
+  jinja version = 3.1.2
+  pyyaml version = 6.0.1 (with libyaml v0.2.5)
+2026-09-25 19:58:38,019 p=95447 u=student n=ansible INFO| Using /home/student/ansible-lab/ansible.cfg as config file
+2026-09-25 19:58:38,451 p=95447 u=student n=ansible INFO| Skipping callback 'minimal', as we already have a stdout callback.
+2026-09-25 19:58:38,451 p=95447 u=student n=ansible INFO| Skipping callback 'oneline', as we already have a stdout callback.
+2026-09-25 19:58:38,451 p=95447 u=student n=ansible INFO| PLAYBOOK: setup_gate.yaml ***************************************************************************************
+2026-09-25 19:58:38,451 p=95447 u=student n=ansible INFO| 1 plays in playbooks/setup_gate.yaml
+2026-09-25 19:58:38,453 p=95447 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 19:58:38,467 p=95447 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 19:58:38,467 p=95447 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:2
+2026-09-25 19:58:41,158 p=95447 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 19:58:41,202 p=95447 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 19:58:41,216 p=95447 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 19:58:41,216 p=95447 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:7
+2026-09-25 19:58:42,657 p=95447 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: useradd: Permission denied.
+useradd: cannot lock /etc/group; try again later.
+
+Origin: /home/student/ansible-lab/playbooks/setup_gate.yaml:7:7
+
+5   
+6   tasks:
+7     - name: Создание пользователя admin_user
+        ^ column 7
+
+
+2026-09-25 19:58:42,659 p=95447 u=student n=ansible INFO| fatal: [gate-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 19:58:42,694 p=95447 u=student n=ansible INFO| fatal: [server-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 19:58:42,696 p=95447 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 19:58:42,697 p=95447 u=student n=ansible INFO| gate-1                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 19:58:42,697 p=95447 u=student n=ansible INFO| server-1                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 19:59:59,191 p=96119 u=student n=ansible INFO| ansible-playbook [core 2.21.4]
+  config file = /home/student/ansible-lab/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0] (/usr/bin/python3)
+  jinja version = 3.1.2
+  pyyaml version = 6.0.1 (with libyaml v0.2.5)
+2026-09-25 19:59:59,191 p=96119 u=student n=ansible INFO| Using /home/student/ansible-lab/ansible.cfg as config file
+2026-09-25 20:00:08,479 p=96119 u=student n=ansible INFO| Skipping callback 'minimal', as we already have a stdout callback.
+2026-09-25 20:00:08,479 p=96119 u=student n=ansible INFO| Skipping callback 'oneline', as we already have a stdout callback.
+2026-09-25 20:00:08,479 p=96119 u=student n=ansible INFO| PLAYBOOK: setup_gate.yaml ***************************************************************************************
+2026-09-25 20:00:08,479 p=96119 u=student n=ansible INFO| 1 plays in playbooks/setup_gate.yaml
+2026-09-25 20:00:08,482 p=96119 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 20:00:08,488 p=96119 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 20:00:08,489 p=96119 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:2
+2026-09-25 20:00:11,228 p=96119 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:00:11,302 p=96119 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:00:11,308 p=96119 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 20:00:11,308 p=96119 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:7
+2026-09-25 20:00:12,570 p=96119 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: useradd: Permission denied.
+useradd: cannot lock /etc/group; try again later.
+
+Origin: /home/student/ansible-lab/playbooks/setup_gate.yaml:7:7
+
+5   
+6   tasks:
+7     - name: Создание пользователя admin_user
+        ^ column 7
+
+
+2026-09-25 20:00:12,571 p=96119 u=student n=ansible INFO| fatal: [gate-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 20:00:12,586 p=96119 u=student n=ansible INFO| fatal: [server-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 20:00:12,587 p=96119 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 20:00:12,588 p=96119 u=student n=ansible INFO| gate-1                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:00:12,588 p=96119 u=student n=ansible INFO| server-1                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:03:28,142 p=96558 u=student n=ansible INFO| ansible-playbook [core 2.21.4]
+  config file = /home/student/ansible-lab/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0] (/usr/bin/python3)
+  jinja version = 3.1.2
+  pyyaml version = 6.0.1 (with libyaml v0.2.5)
+2026-09-25 20:03:28,142 p=96558 u=student n=ansible INFO| Using /home/student/ansible-lab/ansible.cfg as config file
+2026-09-25 20:03:28,568 p=96558 u=student n=ansible INFO| Skipping callback 'minimal', as we already have a stdout callback.
+2026-09-25 20:03:28,569 p=96558 u=student n=ansible INFO| Skipping callback 'oneline', as we already have a stdout callback.
+2026-09-25 20:03:28,569 p=96558 u=student n=ansible INFO| PLAYBOOK: setup_gate.yaml ***************************************************************************************
+2026-09-25 20:03:28,569 p=96558 u=student n=ansible INFO| 1 plays in playbooks/setup_gate.yaml
+2026-09-25 20:03:28,571 p=96558 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 20:03:28,584 p=96558 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 20:03:28,584 p=96558 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:2
+2026-09-25 20:03:31,407 p=96558 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:03:31,507 p=96558 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:03:31,525 p=96558 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 20:03:31,525 p=96558 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:7
+2026-09-25 20:03:32,944 p=96558 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: useradd: Permission denied.
+useradd: cannot lock /etc/group; try again later.
+
+Origin: /home/student/ansible-lab/playbooks/setup_gate.yaml:7:7
+
+5   
+6   tasks:
+7     - name: Создание пользователя admin_user
+        ^ column 7
+
+
+2026-09-25 20:03:32,946 p=96558 u=student n=ansible INFO| fatal: [gate-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 20:03:33,032 p=96558 u=student n=ansible INFO| fatal: [server-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 20:03:33,035 p=96558 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 20:03:33,035 p=96558 u=student n=ansible INFO| gate-1                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:03:33,036 p=96558 u=student n=ansible INFO| server-1                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:07:16,093 p=97902 u=student n=ansible INFO| ansible-playbook [core 2.21.4]
+  config file = /home/student/ansible-lab/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0] (/usr/bin/python3)
+  jinja version = 3.1.2
+  pyyaml version = 6.0.1 (with libyaml v0.2.5)
+2026-09-25 20:07:16,094 p=97902 u=student n=ansible INFO| Using /home/student/ansible-lab/ansible.cfg as config file
+2026-09-25 20:07:16,465 p=97902 u=student n=ansible INFO| Skipping callback 'minimal', as we already have a stdout callback.
+2026-09-25 20:07:16,465 p=97902 u=student n=ansible INFO| Skipping callback 'oneline', as we already have a stdout callback.
+2026-09-25 20:07:16,466 p=97902 u=student n=ansible INFO| PLAYBOOK: setup_gate.yaml ***************************************************************************************
+2026-09-25 20:07:16,466 p=97902 u=student n=ansible INFO| 1 plays in playbooks/setup_gate.yaml
+2026-09-25 20:07:16,468 p=97902 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 20:07:16,480 p=97902 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 20:07:16,480 p=97902 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:2
+2026-09-25 20:07:19,536 p=97902 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:07:19,586 p=97902 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:07:19,607 p=97902 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 20:07:19,607 p=97902 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:7
+2026-09-25 20:07:20,837 p=97902 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: useradd: Permission denied.
+useradd: cannot lock /etc/group; try again later.
+
+Origin: /home/student/ansible-lab/playbooks/setup_gate.yaml:7:7
+
+5   
+6   tasks:
+7     - name: Создание пользователя admin_user
+        ^ column 7
+
+
+2026-09-25 20:07:20,839 p=97902 u=student n=ansible INFO| fatal: [gate-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 20:07:20,847 p=97902 u=student n=ansible INFO| fatal: [server-1]: FAILED! => {"changed": false, "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n", "name": "admin_user", "rc": 10}
+2026-09-25 20:07:20,849 p=97902 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 20:07:20,850 p=97902 u=student n=ansible INFO| gate-1                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:07:20,850 p=97902 u=student n=ansible INFO| server-1                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:08:30,349 p=98264 u=student n=ansible INFO| ansible-playbook [core 2.21.4]
+  config file = /home/student/ansible-lab/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0] (/usr/bin/python3)
+  jinja version = 3.1.2
+  pyyaml version = 6.0.1 (with libyaml v0.2.5)
+2026-09-25 20:08:30,349 p=98264 u=student n=ansible INFO| Using /home/student/ansible-lab/ansible.cfg as config file
+2026-09-25 20:08:30,541 p=98264 u=student n=ansible INFO| host_list declined parsing /home/student/ansible-lab/inventory/hosts.ini as it did not pass its verify_file() method
+2026-09-25 20:08:30,542 p=98264 u=student n=ansible INFO| script declined parsing /home/student/ansible-lab/inventory/hosts.ini as it did not pass its verify_file() method
+2026-09-25 20:08:30,542 p=98264 u=student n=ansible INFO| auto declined parsing /home/student/ansible-lab/inventory/hosts.ini as it did not pass its verify_file() method
+2026-09-25 20:08:30,542 p=98264 u=student n=ansible INFO| yaml declined parsing /home/student/ansible-lab/inventory/hosts.ini as it did not pass its verify_file() method
+2026-09-25 20:08:30,544 p=98264 u=student n=ansible INFO| Parsed /home/student/ansible-lab/inventory/hosts.ini inventory source with ini plugin
+2026-09-25 20:08:30,818 p=98264 u=student n=ansible INFO| Skipping callback 'minimal', as we already have a stdout callback.
+2026-09-25 20:08:30,819 p=98264 u=student n=ansible INFO| Skipping callback 'oneline', as we already have a stdout callback.
+2026-09-25 20:08:30,819 p=98264 u=student n=ansible INFO| PLAYBOOK: setup_gate.yaml ***************************************************************************************
+2026-09-25 20:08:30,819 p=98264 u=student n=ansible INFO| 1 plays in playbooks/setup_gate.yaml
+2026-09-25 20:08:30,821 p=98264 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 20:08:30,829 p=98264 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 20:08:30,829 p=98264 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:2
+2026-09-25 20:08:30,867 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:30,869 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 192.168.10.1 '/bin/sh -c '"'"'echo ~ansuser'"'"''
+2026-09-25 20:08:30,884 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:30,886 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 192.168.10.10 '/bin/sh -c '"'"'echo ~ansuser'"'"''
+2026-09-25 20:08:31,817 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'/home/ansuser\n', b'')
+2026-09-25 20:08:31,819 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:31,820 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'/home/ansuser\n', b'')
+2026-09-25 20:08:31,820 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 192.168.10.1 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansuser/.ansible/tmp `"&& mkdir "` echo /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867 `" && echo ansible-tmp-1790356111.8158116-98283-246090452723867="` echo /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867 `" )'"'"''
+2026-09-25 20:08:31,822 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:31,824 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 192.168.10.10 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansuser/.ansible/tmp `"&& mkdir "` echo /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256 `" && echo ansible-tmp-1790356111.818966-98284-280662640742256="` echo /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256 `" )'"'"''
+2026-09-25 20:08:31,863 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'ansible-tmp-1790356111.818966-98284-280662640742256=/home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256\n', b'')
+2026-09-25 20:08:31,867 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'ansible-tmp-1790356111.8158116-98283-246090452723867=/home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867\n', b'')
+2026-09-25 20:08:32,386 p=98264 u=student n=ansible INFO| Using module file /usr/lib/python3/dist-packages/ansible/modules/setup.py
+2026-09-25 20:08:32,388 p=98264 u=student n=ansible INFO| Using module file /usr/lib/python3/dist-packages/ansible/modules/setup.py
+2026-09-25 20:08:32,388 p=98264 u=student n=ansible INFO| <192.168.10.10> PUT /home/student/.ansible/tmp/ansible-local-982647ngej3un/tmpal2qxg0a TO /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256/AnsiballZ_setup.py
+2026-09-25 20:08:32,388 p=98264 u=student n=ansible INFO| <192.168.10.1> PUT /home/student/.ansible/tmp/ansible-local-982647ngej3un/tmpj26nomv8 TO /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867/AnsiballZ_setup.py
+2026-09-25 20:08:32,388 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 '[192.168.10.10]'
+2026-09-25 20:08:32,388 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 '[192.168.10.1]'
+2026-09-25 20:08:32,426 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'sftp> put /home/student/.ansible/tmp/ansible-local-982647ngej3un/tmpal2qxg0a /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256/AnsiballZ_setup.py\n', b'')
+2026-09-25 20:08:32,426 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:32,426 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 192.168.10.10 '/bin/sh -c '"'"'chmod u+rwx /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256/ /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256/AnsiballZ_setup.py'"'"''
+2026-09-25 20:08:32,437 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'sftp> put /home/student/.ansible/tmp/ansible-local-982647ngej3un/tmpj26nomv8 /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867/AnsiballZ_setup.py\n', b'')
+2026-09-25 20:08:32,438 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:32,439 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 192.168.10.1 '/bin/sh -c '"'"'chmod u+rwx /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867/ /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867/AnsiballZ_setup.py'"'"''
+2026-09-25 20:08:32,444 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'', b'')
+2026-09-25 20:08:32,445 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:32,445 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 -tt 192.168.10.10 '/bin/sh -c '"'"'/usr/bin/python3 /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256/AnsiballZ_setup.py'"'"''
+2026-09-25 20:08:32,460 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'', b'')
+2026-09-25 20:08:32,460 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:32,460 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 -tt 192.168.10.1 '/bin/sh -c '"'"'/usr/bin/python3 /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867/AnsiballZ_setup.py'"'"''
+2026-09-25 20:08:34,130 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'\r\n{"ansible_facts": {"ansible_virtualization_role": "guest", "ansible_virtualization_type": "virtualbox", "ansible_virtualization_tech_guest": ["virtualbox"], "ansible_virtualization_tech_host": [], "ansible_user_id": "ansuser", "ansible_user_uid": 1001, "ansible_user_gid": 1001, "ansible_user_gecos": ",,,", "ansible_user_dir": "/home/ansuser", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 1001, "ansible_effective_user_id": 1001, "ansible_real_group_id": 1001, "ansible_effective_group_id": 1001, "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCl/cL8ZFxuRHkOq8pVEaB2bN4nYHMYURe0BF6jWsBEynhSRQNFIXxBRloB4izyrRZXh/+uHoNCX9FpeW2yKmZYGx//1mtJH8ZTdZ3LqOeRErHrrHJa6LLLG5JpgcEWdbGLY7E14idosklUXmKZY1gyYIhKN71EQtLNTctrEs3D/tcGPEiE+quaguCU1s3bQdPMTSticeZTFpUNXHFWFiOTPPN7VvnoBK9f70Az/SecSIn3ocsN1sgxbuD8PDZOX7gC5rfW5C1Dxq0JClD2adGHPZgvGOOy+9XvE7m0BCNdlojD+suHXN/V/jx+filvLgSzAbUKOfZm77CKP+NzCkGfG/dkEtIizTFEQX9WVVowWCBNHp285AKbBVm8WIt9p+L5ISUsfDObe2OXq9N5GOvwekh5ixXojtlzwL6ohH24EjpyRweOAvwDaF84Xpv9BNQbjDxrkUmmDkyKwoZ5ii8LRSlDlaq2Fv0YY5sAb7e8q5MhdeaIn/NHFELm4IPLW08=", "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBO/wMs7ZdDfbHi703S7KILQ4UGxtHq9tiXUV0rutzlV0kNJt0G4MkNXAGvFs4X/MM6TJtmOWsuiw2nTgXYNBC3A=", "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGhui4E/XB7nVbdhc3aNe8hsdehM7M8RGxwAXxqlob7f", "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519", "ansible_loadavg": {"1m": 0.18115234375, "5m": 0.052734375, "15m": 0.0107421875}, "ansible_system": "Linux", "ansible_kernel": "6.8.0-35-generic", "ansible_kernel_version": "#35-Ubuntu SMP PREEMPT_DYNAMIC Mon May 20 15:51:52 UTC 2024", "ansible_machine": "x86_64", "ansible_python_version": "3.12.3", "ansible_fqdn": "server.corp10.un", "ansible_hostname": "server", "ansible_nodename": "server.corp10.un", "ansible_domain": "corp10.un", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "e26404f2cf1743e589fc1ea874909897", "ansible_distribution": "Ubuntu", "ansible_distribution_release": "noble", "ansible_distribution_version": "24.04", "ansible_distribution_major_version": "24", "ansible_distribution_file_path": "/etc/os-release", "ansible_distribution_file_variety": "Debian", "ansible_distribution_file_parsed": true, "ansible_os_family": "Debian", "ansible_is_chroot": false, "ansible_fips": false, "ansible_dns": {"nameservers": ["127.0.0.53"], "options": {"edns0": true, "trust-ad": true}, "search": ["."]}, "ansible_system_capabilities_enforced": "True", "ansible_system_capabilities": [""], "ansible_python": {"version": {"major": 3, "minor": 12, "micro": 3, "releaselevel": "final", "serial": 0}, "version_info": [3, 12, 3, "final", 0], "executable": "/usr/bin/python3", "has_sslcontext": true, "type": "cpython"}, "ansible_date_time": {"year": "2026", "month": "09", "weekday": "Friday", "weekday_number": "5", "weeknumber": "38", "day": "25", "hour": "20", "minute": "08", "second": "33", "epoch": "1790356113", "epoch_int": "1790356113", "date": "2026-09-25", "time": "20:08:33", "iso8601_micro": "2026-09-25T17:08:33.476301Z", "iso8601": "2026-09-25T17:08:33Z", "iso8601_basic": "20260925T200833476301", "iso8601_basic_short": "20260925T200833", "tz": "MSK", "tz_dst": "MSK", "tz_offset": "+0300"}, "ansible_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.8.0-35-generic", "root": "/dev/mapper/ubuntu--vg-ubuntu--lv", "ro": true}, "ansible_proc_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.8.0-35-generic", "root": "/dev/mapper/ubuntu--vg-ubuntu--lv", "ro": true}, "ansible_apparmor": {"status": "enabled"}, "ansible_selinux_python_present": true, "ansible_selinux": {"status": "disabled"}, "ansible_hostnqn": "", "ansible_systemd": {"features": "+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified", "version": 255}, "ansible_env": {"USER": "ansuser", "SSH_CLIENT": "192.168.10.10 53376 22", "XDG_SESSION_TYPE": "tty", "SHLVL": "0", "HOME": "/home/ansuser", "SSH_TTY": "/dev/pts/3", "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus", "LOGNAME": "ansuser", "_": "/bin/sh", "XDG_SESSION_CLASS": "user", "TERM": "xterm", "XDG_SESSION_ID": "35", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "XDG_RUNTIME_DIR": "/run/user/1001", "LANG": "C.UTF-8", "SHELL": "/bin/bash", "PWD": "/home/ansuser", "SSH_CONNECTION": "192.168.10.10 53376 192.168.10.10 22"}, "ansible_pkg_mgr": "apt", "ansible_iscsi_iqn": "", "ansible_local": {}, "ansible_lsb": {"id": "Ubuntu", "description": "Ubuntu 24.04 LTS", "release": "24.04", "codename": "noble", "major_release": "24"}, "ansible_fibre_channel_wwn": [], "ansible_interfaces": ["docker0", "lo", "enp0s3"], "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "", "netmask": "255.0.0.0", "network": "127.0.0.0", "prefix": "8"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}]}, "ansible_docker0": {"device": "docker0", "macaddress": "8e:f2:83:d6:55:0c", "mtu": 1500, "active": false, "type": "bridge", "interfaces": [], "id": "8000.8ef283d6550c", "stp": false, "speed": -1, "promisc": false, "ipv4": {"address": "172.17.0.1", "broadcast": "172.17.255.255", "netmask": "255.255.0.0", "network": "172.17.0.0", "prefix": "16"}}, "ansible_enp0s3": {"device": "enp0s3", "macaddress": "08:00:27:83:92:bf", "mtu": 1500, "active": true, "module": "e1000", "type": "ether", "pciid": "0000:00:03.0", "speed": 1000, "promisc": false, "ipv4": {"address": "192.168.10.10", "broadcast": "192.168.10.255", "netmask": "255.255.255.0", "network": "192.168.10.0", "prefix": "24"}, "ipv6": [{"address": "fe80::a00:27ff:fe83:92bf", "prefix": "64", "scope": "link"}]}, "ansible_default_ipv4": {"gateway": "192.168.10.1", "interface": "enp0s3", "address": "192.168.10.10", "broadcast": "192.168.10.255", "netmask": "255.255.255.0", "network": "192.168.10.0", "prefix": "24", "macaddress": "08:00:27:83:92:bf", "mtu": 1500, "type": "ether", "alias": "enp0s3"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["172.17.0.1", "192.168.10.10"], "ansible_all_ipv6_addresses": ["fe80::a00:27ff:fe83:92bf"], "ansible_locally_reachable_ips": {"ipv4": ["127.0.0.0/8", "127.0.0.1", "172.17.0.1", "192.168.10.10"], "ipv6": ["::1", "fe80::a00:27ff:fe83:92bf"]}, "ansible_processor": ["0", "GenuineIntel", "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz", "1", "GenuineIntel", "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz"], "ansible_flags": ["fpu", "vme", "de", "pse", "tsc", "msr", "pae", "mce", "cx8", "apic", "sep", "mtrr", "pge", "mca", "cmov", "pat", "pse36", "clflush", "mmx", "fxsr", "sse", "sse2", "ht", "syscall", "nx", "rdtscp", "lm", "constant_tsc", "rep_good", "nopl", "xtopology", "nonstop_tsc", "cpuid", "tsc_known_freq", "pni", "pclmulqdq", "ssse3", "fma", "cx16", "pcid", "sse4_1", "sse4_2", "x2apic", "movbe", "popcnt", "aes", "xsave", "avx", "f16c", "rdrand", "hypervisor", "lahf_lm", "abm", "3dnowprefetch", "fsgsbase", "bmi1", "avx2", "bmi2", "invpcid", "rdseed", "adx", "clflushopt", "sha_ni", "arat", "md_clear", "flush_l1d", "arch_capabilities"], "ansible_processor_count": 1, "ansible_processor_cores": 2, "ansible_processor_threads_per_core": 1, "ansible_processor_vcpus": 2, "ansible_processor_nproc": 2, "ansible_memtotal_mb": 1967, "ansible_memfree_mb": 400, "ansible_swaptotal_mb": 4095, "ansible_swapfree_mb": 4095, "ansible_memory_mb": {"real": {"total": 1967, "used": 1567, "free": 400}, "nocache": {"free": 1576, "used": 391}, "swap": {"total": 4095, "free": 4095, "used": 0, "cached": 0}}, "ansible_bios_date": "12/01/2006", "ansible_bios_vendor": "innotek GmbH", "ansible_bios_version": "VirtualBox", "ansible_board_asset_tag": "NA", "ansible_board_name": "VirtualBox", "ansible_board_serial": "NA", "ansible_board_vendor": "Oracle Corporation", "ansible_board_version": "1.2", "ansible_chassis_asset_tag": "NA", "ansible_chassis_serial": "NA", "ansible_chassis_vendor": "Oracle Corporation", "ansible_chassis_version": "NA", "ansible_form_factor": "Other", "ansible_product_name": "VirtualBox", "ansible_product_serial": "NA", "ansible_product_uuid": "NA", "ansible_product_version": "1.2", "ansible_system_vendor": "innotek GmbH", "ansible_devices": {"loop1": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop6": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop4": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "sr0": {"virtual": 1, "links": {"ids": ["ata-VBOX_CD-ROM_VB2-01700376"], "uuids": [], "labels": [], "masters": []}, "vendor": "VBOX", "model": "CD-ROM", "sas_address": null, "sas_device_handle": null, "removable": "1", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "mq-deadline", "sectorsize": "512", "sectors": 2097151, "size": "1024.00 MB", "host": "IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)", "holders": []}, "loop2": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop0": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "dm-0": {"virtual": 1, "links": {"ids": ["dm-name-ubuntu--vg-ubuntu--lv", "dm-uuid-LVM-YLgl7m99DmqsPd6BhG0lz6qYdkZ0pitdjQE0YSSrDjYWVcUOQyObizrDP9zbbetc"], "uuids": ["d0d45569-4451-4c97-add7-e1b1c11850a5"], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "", "sectorsize": "512", "sectors": 209715200, "size": "100.00 GB", "host": "", "holders": []}, "loop7": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "sda": {"virtual": 1, "links": {"ids": ["ata-VBOX_HARDDISK_VB74a795d6-cca5039f", "scsi-0ATA_VBOX_HARDDISK_VB74a795d6-cca5039f", "scsi-1ATA_VBOX_HARDDISK_VB74a795d6-cca5039f", "scsi-SATA_VBOX_HARDDISK_VB74a795d6-cca5039f"], "uuids": [], "labels": [], "masters": []}, "vendor": "ATA", "model": "VBOX HARDDISK", "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {"sda2": {"links": {"ids": ["ata-VBOX_HARDDISK_VB74a795d6-cca5039f-part2", "scsi-0ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part2", "scsi-1ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part2", "scsi-SATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part2"], "uuids": ["068f86ce-ef80-4096-a101-0c02f23474b6"], "labels": [], "masters": []}, "start": "4096", "sectorsize": 512, "sectors": 4194304, "size": "2.00 GB", "uuid": "068f86ce-ef80-4096-a101-0c02f23474b6", "holders": []}, "sda3": {"links": {"ids": ["ata-VBOX_HARDDISK_VB74a795d6-cca5039f-part3", "lvm-pv-uuid-c8ENsE-vCZH-OdcL-qeXr-fgNJ-OBSQ-rSVhlD", "scsi-0ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part3", "scsi-1ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part3", "scsi-SATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part3"], "uuids": [], "labels": [], "masters": ["dm-0"]}, "start": "4198400", "sectorsize": 512, "sectors": 1044375552, "size": "498.00 GB", "uuid": null, "holders": ["ubuntu--vg-ubuntu--lv"]}, "sda1": {"links": {"ids": ["ata-VBOX_HARDDISK_VB74a795d6-cca5039f-part1", "scsi-0ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part1", "scsi-1ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part1", "scsi-SATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part1"], "uuids": [], "labels": [], "masters": []}, "start": "2048", "sectorsize": 512, "sectors": 2048, "size": "1.00 MB", "uuid": null, "holders": []}}, "rotational": "1", "scheduler_mode": "mq-deadline", "sectorsize": "512", "sectors": 1048576000, "size": "500.00 GB", "host": "SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02)", "holders": []}, "loop5": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop3": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"sda": ["ata-VBOX_HARDDISK_VB74a795d6-cca5039f", "scsi-0ATA_VBOX_HARDDISK_VB74a795d6-cca5039f", "scsi-1ATA_VBOX_HARDDISK_VB74a795d6-cca5039f", "scsi-SATA_VBOX_HARDDISK_VB74a795d6-cca5039f"], "sda1": ["ata-VBOX_HARDDISK_VB74a795d6-cca5039f-part1", "scsi-0ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part1", "scsi-1ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part1", "scsi-SATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part1"], "sda2": ["ata-VBOX_HARDDISK_VB74a795d6-cca5039f-part2", "scsi-0ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part2", "scsi-1ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part2", "scsi-SATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part2"], "sda3": ["ata-VBOX_HARDDISK_VB74a795d6-cca5039f-part3", "lvm-pv-uuid-c8ENsE-vCZH-OdcL-qeXr-fgNJ-OBSQ-rSVhlD", "scsi-0ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part3", "scsi-1ATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part3", "scsi-SATA_VBOX_HARDDISK_VB74a795d6-cca5039f-part3"], "dm-0": ["dm-name-ubuntu--vg-ubuntu--lv", "dm-uuid-LVM-YLgl7m99DmqsPd6BhG0lz6qYdkZ0pitdjQE0YSSrDjYWVcUOQyObizrDP9zbbetc"], "sr0": ["ata-VBOX_CD-ROM_VB2-01700376"]}, "uuids": {"sda2": ["068f86ce-ef80-4096-a101-0c02f23474b6"], "dm-0": ["d0d45569-4451-4c97-add7-e1b1c11850a5"]}, "labels": {}, "masters": {"sda3": ["dm-0"]}}, "ansible_uptime_seconds": 8584, "ansible_lvm": "N/A", "ansible_mounts": [{"mount": "/", "device": "/dev/mapper/ubuntu--vg-ubuntu--lv", "fstype": "ext4", "options": "rw,relatime", "dump": 0, "passno": 0, "size_total": 105089261568, "size_available": 91345768448, "block_size": 4096, "block_total": 25656558, "block_available": 22301213, "block_used": 3355345, "inode_total": 6553600, "inode_available": 6399181, "inode_used": 154419, "uuid": "d0d45569-4451-4c97-add7-e1b1c11850a5"}, {"mount": "/boot", "device": "/dev/sda2", "fstype": "ext4", "options": "rw,relatime", "dump": 0, "passno": 0, "size_total": 2040373248, "size_available": 1717469184, "block_size": 4096, "block_total": 498138, "block_available": 419304, "block_used": 78834, "inode_total": 131072, "inode_available": 130751, "inode_used": 321, "uuid": "068f86ce-ef80-4096-a101-0c02f23474b6"}], "ansible_service_mgr": "systemd", "gather_subset": ["all"], "module_setup": true}}\r\n', b'Shared connection to 192.168.10.10 closed.\r\n')
+2026-09-25 20:08:34,143 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,144 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 192.168.10.10 '/bin/sh -c '"'"'rm -f -r /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.818966-98284-280662640742256/ > /dev/null 2>&1'"'"''
+2026-09-25 20:08:34,168 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'\r\n{"ansible_facts": {"ansible_system": "Linux", "ansible_kernel": "6.8.0-142-generic", "ansible_kernel_version": "#142-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:24:27 UTC 2026", "ansible_machine": "x86_64", "ansible_python_version": "3.12.3", "ansible_fqdn": "gate.corp10.un", "ansible_hostname": "gate", "ansible_nodename": "gate.corp10.un", "ansible_domain": "corp10.un", "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_userspace_architecture": "x86_64", "ansible_machine_id": "e26404f2cf1743e589fc1ea874909897", "ansible_user_id": "ansuser", "ansible_user_uid": 1001, "ansible_user_gid": 1001, "ansible_user_gecos": ",,,", "ansible_user_dir": "/home/ansuser", "ansible_user_shell": "/bin/bash", "ansible_real_user_id": 1001, "ansible_effective_user_id": 1001, "ansible_real_group_id": 1001, "ansible_effective_group_id": 1001, "ansible_distribution": "Ubuntu", "ansible_distribution_release": "noble", "ansible_distribution_version": "24.04", "ansible_distribution_major_version": "24", "ansible_distribution_file_path": "/etc/os-release", "ansible_distribution_file_variety": "Debian", "ansible_distribution_file_parsed": true, "ansible_os_family": "Debian", "ansible_apparmor": {"status": "enabled"}, "ansible_lsb": {"id": "Ubuntu", "description": "Ubuntu 24.04 LTS", "release": "24.04", "codename": "noble", "major_release": "24"}, "ansible_selinux_python_present": true, "ansible_selinux": {"status": "disabled"}, "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCl/cL8ZFxuRHkOq8pVEaB2bN4nYHMYURe0BF6jWsBEynhSRQNFIXxBRloB4izyrRZXh/+uHoNCX9FpeW2yKmZYGx//1mtJH8ZTdZ3LqOeRErHrrHJa6LLLG5JpgcEWdbGLY7E14idosklUXmKZY1gyYIhKN71EQtLNTctrEs3D/tcGPEiE+quaguCU1s3bQdPMTSticeZTFpUNXHFWFiOTPPN7VvnoBK9f70Az/SecSIn3ocsN1sgxbuD8PDZOX7gC5rfW5C1Dxq0JClD2adGHPZgvGOOy+9XvE7m0BCNdlojD+suHXN/V/jx+filvLgSzAbUKOfZm77CKP+NzCkGfG/dkEtIizTFEQX9WVVowWCBNHp285AKbBVm8WIt9p+L5ISUsfDObe2OXq9N5GOvwekh5ixXojtlzwL6ohH24EjpyRweOAvwDaF84Xpv9BNQbjDxrkUmmDkyKwoZ5ii8LRSlDlaq2Fv0YY5sAb7e8q5MhdeaIn/NHFELm4IPLW08=", "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa", "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBO/wMs7ZdDfbHi703S7KILQ4UGxtHq9tiXUV0rutzlV0kNJt0G4MkNXAGvFs4X/MM6TJtmOWsuiw2nTgXYNBC3A=", "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGhui4E/XB7nVbdhc3aNe8hsdehM7M8RGxwAXxqlob7f", "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519", "ansible_virtualization_role": "guest", "ansible_virtualization_type": "virtualbox", "ansible_virtualization_tech_guest": ["virtualbox"], "ansible_virtualization_tech_host": [], "ansible_system_capabilities_enforced": "True", "ansible_system_capabilities": [""], "ansible_fips": false, "ansible_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.8.0-142-generic", "root": "/dev/mapper/ubuntu--vg-ubuntu--lv", "ro": true}, "ansible_proc_cmdline": {"BOOT_IMAGE": "/vmlinuz-6.8.0-142-generic", "root": "/dev/mapper/ubuntu--vg-ubuntu--lv", "ro": true}, "ansible_is_chroot": false, "ansible_date_time": {"year": "2026", "month": "09", "weekday": "Friday", "weekday_number": "5", "weeknumber": "38", "day": "25", "hour": "20", "minute": "08", "second": "35", "epoch": "1790356115", "epoch_int": "1790356115", "date": "2026-09-25", "time": "20:08:35", "iso8601_micro": "2026-09-25T17:08:35.566512Z", "iso8601": "2026-09-25T17:08:35Z", "iso8601_basic": "20260925T200835566512", "iso8601_basic_short": "20260925T200835", "tz": "MSK", "tz_dst": "MSK", "tz_offset": "+0300"}, "ansible_processor": ["0", "GenuineIntel", "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz", "1", "GenuineIntel", "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz"], "ansible_flags": ["fpu", "vme", "de", "pse", "tsc", "msr", "pae", "mce", "cx8", "apic", "sep", "mtrr", "pge", "mca", "cmov", "pat", "pse36", "clflush", "mmx", "fxsr", "sse", "sse2", "ht", "syscall", "nx", "rdtscp", "lm", "constant_tsc", "rep_good", "nopl", "xtopology", "nonstop_tsc", "cpuid", "tsc_known_freq", "pni", "pclmulqdq", "ssse3", "fma", "cx16", "pcid", "sse4_1", "sse4_2", "x2apic", "movbe", "popcnt", "aes", "xsave", "avx", "f16c", "rdrand", "hypervisor", "lahf_lm", "abm", "3dnowprefetch", "fsgsbase", "bmi1", "avx2", "bmi2", "invpcid", "rdseed", "adx", "clflushopt", "sha_ni", "arat", "md_clear", "flush_l1d", "arch_capabilities"], "ansible_processor_count": 1, "ansible_processor_cores": 2, "ansible_processor_threads_per_core": 1, "ansible_processor_vcpus": 2, "ansible_processor_nproc": 2, "ansible_memtotal_mb": 1967, "ansible_memfree_mb": 1046, "ansible_swaptotal_mb": 4095, "ansible_swapfree_mb": 4095, "ansible_memory_mb": {"real": {"total": 1967, "used": 921, "free": 1046}, "nocache": {"free": 1731, "used": 236}, "swap": {"total": 4095, "free": 4095, "used": 0, "cached": 0}}, "ansible_bios_date": "12/01/2006", "ansible_bios_vendor": "innotek GmbH", "ansible_bios_version": "VirtualBox", "ansible_board_asset_tag": "NA", "ansible_board_name": "VirtualBox", "ansible_board_serial": "NA", "ansible_board_vendor": "Oracle Corporation", "ansible_board_version": "1.2", "ansible_chassis_asset_tag": "NA", "ansible_chassis_serial": "NA", "ansible_chassis_vendor": "Oracle Corporation", "ansible_chassis_version": "NA", "ansible_form_factor": "Other", "ansible_product_name": "VirtualBox", "ansible_product_serial": "NA", "ansible_product_uuid": "NA", "ansible_product_version": "1.2", "ansible_system_vendor": "innotek GmbH", "ansible_devices": {"loop1": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop6": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop4": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "sr0": {"virtual": 1, "links": {"ids": ["ata-VBOX_CD-ROM_VB2-01700376"], "uuids": [], "labels": [], "masters": []}, "vendor": "VBOX", "model": "CD-ROM", "sas_address": null, "sas_device_handle": null, "removable": "1", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "mq-deadline", "sectorsize": "512", "sectors": 2097151, "size": "1024.00 MB", "host": "IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)", "holders": []}, "loop2": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop0": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "4096", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "dm-0": {"virtual": 1, "links": {"ids": ["dm-name-ubuntu--vg-ubuntu--lv", "dm-uuid-LVM-YLgl7m99DmqsPd6BhG0lz6qYdkZ0pitdjQE0YSSrDjYWVcUOQyObizrDP9zbbetc"], "uuids": ["d0d45569-4451-4c97-add7-e1b1c11850a5"], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "", "sectorsize": "512", "sectors": 209715200, "size": "100.00 GB", "host": "", "holders": []}, "loop7": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "sda": {"virtual": 1, "links": {"ids": ["ata-VBOX_HARDDISK_VB57aaf8a0-68f6074d", "scsi-0ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d", "scsi-1ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d", "scsi-SATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d"], "uuids": [], "labels": [], "masters": []}, "vendor": "ATA", "model": "VBOX HARDDISK", "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {"sda2": {"links": {"ids": ["ata-VBOX_HARDDISK_VB57aaf8a0-68f6074d-part2", "scsi-0ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part2", "scsi-1ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part2", "scsi-SATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part2"], "uuids": ["068f86ce-ef80-4096-a101-0c02f23474b6"], "labels": [], "masters": []}, "start": "4096", "sectorsize": 512, "sectors": 4194304, "size": "2.00 GB", "uuid": "068f86ce-ef80-4096-a101-0c02f23474b6", "holders": []}, "sda3": {"links": {"ids": ["ata-VBOX_HARDDISK_VB57aaf8a0-68f6074d-part3", "lvm-pv-uuid-c8ENsE-vCZH-OdcL-qeXr-fgNJ-OBSQ-rSVhlD", "scsi-0ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part3", "scsi-1ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part3", "scsi-SATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part3"], "uuids": [], "labels": [], "masters": ["dm-0"]}, "start": "4198400", "sectorsize": 512, "sectors": 1044375552, "size": "498.00 GB", "uuid": null, "holders": ["ubuntu--vg-ubuntu--lv"]}, "sda1": {"links": {"ids": ["ata-VBOX_HARDDISK_VB57aaf8a0-68f6074d-part1", "scsi-0ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part1", "scsi-1ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part1", "scsi-SATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part1"], "uuids": [], "labels": [], "masters": []}, "start": "2048", "sectorsize": 512, "sectors": 2048, "size": "1.00 MB", "uuid": null, "holders": []}}, "rotational": "1", "scheduler_mode": "mq-deadline", "sectorsize": "512", "sectors": 1048576000, "size": "500.00 GB", "host": "SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02)", "holders": []}, "loop5": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}, "loop3": {"virtual": 1, "links": {"ids": [], "uuids": [], "labels": [], "masters": []}, "vendor": null, "model": null, "sas_address": null, "sas_device_handle": null, "removable": "0", "support_discard": "0", "partitions": {}, "rotational": "1", "scheduler_mode": "none", "sectorsize": "512", "sectors": 0, "size": "0.00 Bytes", "host": "", "holders": []}}, "ansible_device_links": {"ids": {"sr0": ["ata-VBOX_CD-ROM_VB2-01700376"], "dm-0": ["dm-name-ubuntu--vg-ubuntu--lv", "dm-uuid-LVM-YLgl7m99DmqsPd6BhG0lz6qYdkZ0pitdjQE0YSSrDjYWVcUOQyObizrDP9zbbetc"], "sda3": ["ata-VBOX_HARDDISK_VB57aaf8a0-68f6074d-part3", "lvm-pv-uuid-c8ENsE-vCZH-OdcL-qeXr-fgNJ-OBSQ-rSVhlD", "scsi-0ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part3", "scsi-1ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part3", "scsi-SATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part3"], "sda1": ["ata-VBOX_HARDDISK_VB57aaf8a0-68f6074d-part1", "scsi-0ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part1", "scsi-1ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part1", "scsi-SATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part1"], "sda2": ["ata-VBOX_HARDDISK_VB57aaf8a0-68f6074d-part2", "scsi-0ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part2", "scsi-1ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part2", "scsi-SATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d-part2"], "sda": ["ata-VBOX_HARDDISK_VB57aaf8a0-68f6074d", "scsi-0ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d", "scsi-1ATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d", "scsi-SATA_VBOX_HARDDISK_VB57aaf8a0-68f6074d"]}, "uuids": {"dm-0": ["d0d45569-4451-4c97-add7-e1b1c11850a5"], "sda2": ["068f86ce-ef80-4096-a101-0c02f23474b6"]}, "labels": {}, "masters": {"sda3": ["dm-0"]}}, "ansible_uptime_seconds": 8522, "ansible_lvm": "N/A", "ansible_mounts": [{"mount": "/", "device": "/dev/mapper/ubuntu--vg-ubuntu--lv", "fstype": "ext4", "options": "rw,relatime", "dump": 0, "passno": 0, "size_total": 105089261568, "size_available": 91987042304, "block_size": 4096, "block_total": 25656558, "block_available": 22457774, "block_used": 3198784, "inode_total": 6553600, "inode_available": 6440359, "inode_used": 113241, "uuid": "d0d45569-4451-4c97-add7-e1b1c11850a5"}, {"mount": "/boot", "device": "/dev/sda2", "fstype": "ext4", "options": "rw,relatime", "dump": 0, "passno": 0, "size_total": 2040373248, "size_available": 1715011584, "block_size": 4096, "block_total": 498138, "block_available": 418704, "block_used": 79434, "inode_total": 131072, "inode_available": 130751, "inode_used": 321, "uuid": "068f86ce-ef80-4096-a101-0c02f23474b6"}], "ansible_local": {}, "ansible_python": {"version": {"major": 3, "minor": 12, "micro": 3, "releaselevel": "final", "serial": 0}, "version_info": [3, 12, 3, "final", 0], "executable": "/usr/bin/python3", "has_sslcontext": true, "type": "cpython"}, "ansible_iscsi_iqn": "", "ansible_fibre_channel_wwn": [], "ansible_dns": {"nameservers": ["127.0.0.53"], "options": {"edns0": true, "trust-ad": true}, "search": ["."]}, "ansible_env": {"USER": "ansuser", "SSH_CLIENT": "192.168.10.10 58948 22", "XDG_SESSION_TYPE": "tty", "SHLVL": "0", "HOME": "/home/ansuser", "SSH_TTY": "/dev/pts/1", "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus", "LOGNAME": "ansuser", "_": "/bin/sh", "XDG_SESSION_CLASS": "user", "TERM": "xterm", "XDG_SESSION_ID": "42", "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin", "XDG_RUNTIME_DIR": "/run/user/1001", "LANG": "C.UTF-8", "SHELL": "/bin/bash", "PWD": "/home/ansuser", "SSH_CONNECTION": "192.168.10.10 58948 192.168.10.1 22"}, "ansible_interfaces": ["docker0", "enp0s8", "enp0s3", "lo"], "ansible_enp0s3": {"device": "enp0s3", "macaddress": "08:00:27:3c:fe:dc", "mtu": 1500, "active": true, "module": "e1000", "type": "ether", "pciid": "0000:00:03.0", "speed": 1000, "promisc": false, "ipv4": {"address": "192.168.10.1", "broadcast": "192.168.10.255", "netmask": "255.255.255.0", "network": "192.168.10.0", "prefix": "24"}, "ipv6": [{"address": "fe80::a00:27ff:fe3c:fedc", "prefix": "64", "scope": "link"}]}, "ansible_lo": {"device": "lo", "mtu": 65536, "active": true, "type": "loopback", "promisc": false, "ipv4": {"address": "127.0.0.1", "broadcast": "", "netmask": "255.0.0.0", "network": "127.0.0.0", "prefix": "8"}, "ipv6": [{"address": "::1", "prefix": "128", "scope": "host"}]}, "ansible_enp0s8": {"device": "enp0s8", "macaddress": "08:00:27:cc:79:75", "mtu": 1500, "active": true, "module": "e1000", "type": "ether", "pciid": "0000:00:08.0", "speed": 1000, "promisc": false, "ipv4": {"address": "192.168.1.142", "broadcast": "", "netmask": "255.255.255.0", "network": "192.168.1.0", "prefix": "24"}, "ipv6": [{"address": "fe80::a00:27ff:fecc:7975", "prefix": "64", "scope": "link"}]}, "ansible_docker0": {"device": "docker0", "macaddress": "a6:8f:78:59:c8:c0", "mtu": 1500, "active": false, "type": "bridge", "interfaces": [], "id": "8000.a68f7859c8c0", "stp": false, "speed": -1, "promisc": false, "ipv4": {"address": "172.17.0.1", "broadcast": "172.17.255.255", "netmask": "255.255.0.0", "network": "172.17.0.0", "prefix": "16"}}, "ansible_default_ipv4": {"gateway": "192.168.1.1", "interface": "enp0s8", "address": "192.168.1.142", "broadcast": "", "netmask": "255.255.255.0", "network": "192.168.1.0", "prefix": "24", "macaddress": "08:00:27:cc:79:75", "mtu": 1500, "type": "ether", "alias": "enp0s8"}, "ansible_default_ipv6": {}, "ansible_all_ipv4_addresses": ["192.168.10.1", "192.168.1.142", "172.17.0.1"], "ansible_all_ipv6_addresses": ["fe80::a00:27ff:fe3c:fedc", "fe80::a00:27ff:fecc:7975"], "ansible_locally_reachable_ips": {"ipv4": ["127.0.0.0/8", "127.0.0.1", "172.17.0.1", "192.168.1.142", "192.168.10.1"], "ipv6": ["::1", "fe80::a00:27ff:fe3c:fedc", "fe80::a00:27ff:fecc:7975"]}, "ansible_pkg_mgr": "apt", "ansible_hostnqn": "", "ansible_systemd": {"features": "+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified", "version": 255}, "ansible_loadavg": {"1m": 0.080078125, "5m": 0.05615234375, "15m": 0.025390625}, "ansible_service_mgr": "systemd", "gather_subset": ["all"], "module_setup": true}}\r\n', b'Shared connection to 192.168.10.1 closed.\r\n')
+2026-09-25 20:08:34,179 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'', b'')
+2026-09-25 20:08:34,179 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,181 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 192.168.10.1 '/bin/sh -c '"'"'rm -f -r /home/ansuser/.ansible/tmp/ansible-tmp-1790356111.8158116-98283-246090452723867/ > /dev/null 2>&1'"'"''
+2026-09-25 20:08:34,198 p=98264 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:08:34,219 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'', b'')
+2026-09-25 20:08:34,236 p=98264 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:08:34,243 p=98264 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 20:08:34,244 p=98264 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:7
+2026-09-25 20:08:34,280 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,282 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 192.168.10.1 '/bin/sh -c '"'"'echo ~ansuser'"'"''
+2026-09-25 20:08:34,292 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'/home/ansuser\n', b'')
+2026-09-25 20:08:34,293 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,293 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 192.168.10.1 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansuser/.ansible/tmp `"&& mkdir "` echo /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496 `" && echo ansible-tmp-1790356114.2924676-98443-87679869529496="` echo /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496 `" )'"'"''
+2026-09-25 20:08:34,302 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,303 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 192.168.10.10 '/bin/sh -c '"'"'echo ~ansuser'"'"''
+2026-09-25 20:08:34,320 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'ansible-tmp-1790356114.2924676-98443-87679869529496=/home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496\n', b'')
+2026-09-25 20:08:34,327 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'/home/ansuser\n', b'')
+2026-09-25 20:08:34,327 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,327 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 192.168.10.10 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ansuser/.ansible/tmp `"&& mkdir "` echo /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405 `" && echo ansible-tmp-1790356114.3261893-98444-216775882172405="` echo /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405 `" )'"'"''
+2026-09-25 20:08:34,346 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'ansible-tmp-1790356114.3261893-98444-216775882172405=/home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405\n', b'')
+2026-09-25 20:08:34,694 p=98264 u=student n=ansible INFO| Using module file /usr/lib/python3/dist-packages/ansible/modules/user.py
+2026-09-25 20:08:34,694 p=98264 u=student n=ansible INFO| <192.168.10.1> PUT /home/student/.ansible/tmp/ansible-local-982647ngej3un/tmp4y6v3uyj TO /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496/AnsiballZ_user.py
+2026-09-25 20:08:34,695 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 '[192.168.10.1]'
+2026-09-25 20:08:34,696 p=98264 u=student n=ansible INFO| Using module file /usr/lib/python3/dist-packages/ansible/modules/user.py
+2026-09-25 20:08:34,697 p=98264 u=student n=ansible INFO| <192.168.10.10> PUT /home/student/.ansible/tmp/ansible-local-982647ngej3un/tmpsexgo4fg TO /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405/AnsiballZ_user.py
+2026-09-25 20:08:34,698 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 '[192.168.10.10]'
+2026-09-25 20:08:34,736 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'sftp> put /home/student/.ansible/tmp/ansible-local-982647ngej3un/tmpsexgo4fg /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405/AnsiballZ_user.py\n', b'')
+2026-09-25 20:08:34,738 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,741 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 192.168.10.10 '/bin/sh -c '"'"'chmod u+rwx /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405/ /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405/AnsiballZ_user.py'"'"''
+2026-09-25 20:08:34,742 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'sftp> put /home/student/.ansible/tmp/ansible-local-982647ngej3un/tmp4y6v3uyj /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496/AnsiballZ_user.py\n', b'')
+2026-09-25 20:08:34,744 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,746 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 192.168.10.1 '/bin/sh -c '"'"'chmod u+rwx /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496/ /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496/AnsiballZ_user.py'"'"''
+2026-09-25 20:08:34,753 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'', b'')
+2026-09-25 20:08:34,753 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,753 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 -tt 192.168.10.10 '/bin/sh -c '"'"'/usr/bin/python3 /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405/AnsiballZ_user.py'"'"''
+2026-09-25 20:08:34,767 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'', b'')
+2026-09-25 20:08:34,769 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:34,769 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 -tt 192.168.10.1 '/bin/sh -c '"'"'/usr/bin/python3 /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496/AnsiballZ_user.py'"'"''
+2026-09-25 20:08:35,526 p=98264 u=student n=ansible INFO| <192.168.10.1> (1, b'\r\n{"name": "admin_user", "rc": 10, "failed": true, "msg": "useradd: Permission denied.\\nuseradd: cannot lock /etc/group; try again later.\\n"}\r\n', b'Shared connection to 192.168.10.1 closed.\r\n')
+2026-09-25 20:08:35,529 p=98264 u=student n=ansible INFO| <192.168.10.1> Failed to connect to the host via ssh: Shared connection to 192.168.10.1 closed.
+2026-09-25 20:08:35,541 p=98264 u=student n=ansible INFO| <192.168.10.1> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:35,545 p=98264 u=student n=ansible INFO| <192.168.10.1> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/7f2f0c235d"' -o NumberOfPasswordPrompts=1 192.168.10.1 '/bin/sh -c '"'"'rm -f -r /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.2924676-98443-87679869529496/ > /dev/null 2>&1'"'"''
+2026-09-25 20:08:35,586 p=98264 u=student n=ansible INFO| <192.168.10.1> (0, b'', b'')
+2026-09-25 20:08:35,605 p=98264 u=student n=ansible INFO| <192.168.10.10> (1, b'\r\n{"name": "admin_user", "rc": 10, "failed": true, "msg": "useradd: Permission denied.\\nuseradd: cannot lock /etc/group; try again later.\\n"}\r\n', b'Shared connection to 192.168.10.10 closed.\r\n')
+2026-09-25 20:08:35,606 p=98264 u=student n=ansible INFO| <192.168.10.10> Failed to connect to the host via ssh: Shared connection to 192.168.10.10 closed.
+2026-09-25 20:08:35,607 p=98264 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: useradd: Permission denied.
+useradd: cannot lock /etc/group; try again later.
+
+Origin: /home/student/ansible-lab/playbooks/setup_gate.yaml:7:7
+
+5   
+6   tasks:
+7     - name: Создание пользователя admin_user
+        ^ column 7
+
+
+2026-09-25 20:08:35,612 p=98264 u=student n=ansible INFO| fatal: [gate-1]: FAILED! => {
+    "changed": false,
+    "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n",
+    "name": "admin_user",
+    "rc": 10
+}
+2026-09-25 20:08:35,614 p=98264 u=student n=ansible INFO| <192.168.10.10> ESTABLISH SSH CONNECTION FOR USER: ansuser
+2026-09-25 20:08:35,615 p=98264 u=student n=ansible INFO| <192.168.10.10> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ansuser"' -o ConnectTimeout=30 -o 'ControlPath="/home/student/.ansible/cp/3a39736710"' -o NumberOfPasswordPrompts=1 192.168.10.10 '/bin/sh -c '"'"'rm -f -r /home/ansuser/.ansible/tmp/ansible-tmp-1790356114.3261893-98444-216775882172405/ > /dev/null 2>&1'"'"''
+2026-09-25 20:08:35,646 p=98264 u=student n=ansible INFO| <192.168.10.10> (0, b'', b'')
+2026-09-25 20:08:35,654 p=98264 u=student n=ansible INFO| fatal: [server-1]: FAILED! => {
+    "changed": false,
+    "msg": "useradd: Permission denied.\nuseradd: cannot lock /etc/group; try again later.\n",
+    "name": "admin_user",
+    "rc": 10
+}
+2026-09-25 20:08:35,656 p=98264 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 20:08:35,657 p=98264 u=student n=ansible INFO| gate-1                     : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:08:35,657 p=98264 u=student n=ansible INFO| server-1                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:12:41,445 p=99345 u=student n=ansible INFO| ansible-playbook [core 2.21.4]
+  config file = /home/student/ansible-lab/ansible.cfg
+  configured module search path = ['/home/student/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  ansible collection location = /home/student/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0] (/usr/bin/python3)
+  jinja version = 3.1.2
+  pyyaml version = 6.0.1 (with libyaml v0.2.5)
+2026-09-25 20:12:41,445 p=99345 u=student n=ansible INFO| Using /home/student/ansible-lab/ansible.cfg as config file
+2026-09-25 20:12:41,838 p=99345 u=student n=ansible INFO| Skipping callback 'minimal', as we already have a stdout callback.
+2026-09-25 20:12:41,838 p=99345 u=student n=ansible INFO| Skipping callback 'oneline', as we already have a stdout callback.
+2026-09-25 20:12:41,838 p=99345 u=student n=ansible INFO| PLAYBOOK: setup_gate.yaml ***************************************************************************************
+2026-09-25 20:12:41,838 p=99345 u=student n=ansible INFO| 1 plays in playbooks/setup_gate.yaml
+2026-09-25 20:12:41,840 p=99345 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 20:12:41,858 p=99345 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 20:12:41,858 p=99345 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:2
+2026-09-25 20:12:44,646 p=99345 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:12:44,796 p=99345 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:12:44,803 p=99345 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 20:12:44,803 p=99345 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:7
+2026-09-25 20:12:45,951 p=99345 u=student n=ansible INFO| changed: [server-1] => {"changed": true, "comment": "", "create_home": true, "group": 1002, "groups": "sudo", "home": "/home/admin_user", "name": "admin_user", "shell": "/bin/bash", "state": "present", "system": false, "uid": 1002}
+2026-09-25 20:12:45,974 p=99345 u=student n=ansible INFO| changed: [gate-1] => {"changed": true, "comment": "", "create_home": true, "group": 1003, "groups": "sudo", "home": "/home/admin_user", "name": "admin_user", "shell": "/bin/bash", "state": "present", "system": false, "uid": 1002}
+2026-09-25 20:12:46,063 p=99345 u=student n=ansible INFO| TASK [Установка htop] *******************************************************************************************
+2026-09-25 20:12:46,064 p=99345 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:16
+2026-09-25 20:12:52,954 p=99345 u=student n=ansible INFO| changed: [gate-1] => {"cache_update_time": 1790348241, "cache_updated": false, "changed": true, "stderr": "debconf: delaying package configuration, since apt-utils is not installed\n", "stderr_lines": ["debconf: delaying package configuration, since apt-utils is not installed"], "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nSuggested packages:\n  lm-sensors lsof strace\nThe following NEW packages will be installed:\n  htop\n0 upgraded, 1 newly installed, 0 to remove and 125 not upgraded.\nNeed to get 171 kB of archives.\nAfter this operation, 434 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu noble/main amd64 htop amd64 3.3.0-4build1 [171 kB]\nFetched 171 kB in 1s (116 kB/s)\nSelecting previously unselected package htop.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 115847 files and directories currently installed.)\r\nPreparing to unpack .../htop_3.3.0-4build1_amd64.deb ...\r\nUnpacking htop (3.3.0-4build1) ...\r\nSetting up htop (3.3.0-4build1) ...\r\n\nRunning kernel seems to be up-to-date.\n\nNo services need to be restarted.\n\nNo containers need to be restarted.\n\nNo user sessions are running outdated binaries.\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information...", "Suggested packages:", "  lm-sensors lsof strace", "The following NEW packages will be installed:", "  htop", "0 upgraded, 1 newly installed, 0 to remove and 125 not upgraded.", "Need to get 171 kB of archives.", "After this operation, 434 kB of additional disk space will be used.", "Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 htop amd64 3.3.0-4build1 [171 kB]", "Fetched 171 kB in 1s (116 kB/s)", "Selecting previously unselected package htop.", "(Reading database ... ", "(Reading database ... 5%", "(Reading database ... 10%", "(Reading database ... 15%", "(Reading database ... 20%", "(Reading database ... 25%", "(Reading database ... 30%", "(Reading database ... 35%", "(Reading database ... 40%", "(Reading database ... 45%", "(Reading database ... 50%", "(Reading database ... 55%", "(Reading database ... 60%", "(Reading database ... 65%", "(Reading database ... 70%", "(Reading database ... 75%", "(Reading database ... 80%", "(Reading database ... 85%", "(Reading database ... 90%", "(Reading database ... 95%", "(Reading database ... 100%", "(Reading database ... 115847 files and directories currently installed.)", "Preparing to unpack .../htop_3.3.0-4build1_amd64.deb ...", "Unpacking htop (3.3.0-4build1) ...", "Setting up htop (3.3.0-4build1) ...", "", "Running kernel seems to be up-to-date.", "", "No services need to be restarted.", "", "No containers need to be restarted.", "", "No user sessions are running outdated binaries.", "", "No VM guests are running outdated hypervisor (qemu) binaries on this host."]}
+2026-09-25 20:12:54,052 p=99345 u=student n=ansible INFO| changed: [server-1] => {"cache_update_time": 1790349859, "cache_updated": false, "changed": true, "stderr": "debconf: delaying package configuration, since apt-utils is not installed\n", "stderr_lines": ["debconf: delaying package configuration, since apt-utils is not installed"], "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nSuggested packages:\n  lm-sensors lsof strace\nThe following NEW packages will be installed:\n  htop\n0 upgraded, 1 newly installed, 0 to remove and 123 not upgraded.\nNeed to get 171 kB of archives.\nAfter this operation, 434 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu noble/main amd64 htop amd64 3.3.0-4build1 [171 kB]\nFetched 171 kB in 2s (84.1 kB/s)\nSelecting previously unselected package htop.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 141185 files and directories currently installed.)\r\nPreparing to unpack .../htop_3.3.0-4build1_amd64.deb ...\r\nUnpacking htop (3.3.0-4build1) ...\r\nSetting up htop (3.3.0-4build1) ...\r\n\nPending kernel upgrade!\nRunning kernel version:\n  6.8.0-35-generic\nDiagnostics:\n  The currently running kernel version is not the expected kernel version 6.8.0-142-generic.\n\nRestarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.\n\nRestarting services...\n\nService restarts being deferred:\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart getty@tty1.service\n systemctl restart systemd-logind.service\n systemctl restart unattended-upgrades.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n student @ session #1: sshd[1196,1254]\n student @ session #2: sshd[1198,1255]\n student @ user manager service: systemd[1202]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information...", "Suggested packages:", "  lm-sensors lsof strace", "The following NEW packages will be installed:", "  htop", "0 upgraded, 1 newly installed, 0 to remove and 123 not upgraded.", "Need to get 171 kB of archives.", "After this operation, 434 kB of additional disk space will be used.", "Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 htop amd64 3.3.0-4build1 [171 kB]", "Fetched 171 kB in 2s (84.1 kB/s)", "Selecting previously unselected package htop.", "(Reading database ... ", "(Reading database ... 5%", "(Reading database ... 10%", "(Reading database ... 15%", "(Reading database ... 20%", "(Reading database ... 25%", "(Reading database ... 30%", "(Reading database ... 35%", "(Reading database ... 40%", "(Reading database ... 45%", "(Reading database ... 50%", "(Reading database ... 55%", "(Reading database ... 60%", "(Reading database ... 65%", "(Reading database ... 70%", "(Reading database ... 75%", "(Reading database ... 80%", "(Reading database ... 85%", "(Reading database ... 90%", "(Reading database ... 95%", "(Reading database ... 100%", "(Reading database ... 141185 files and directories currently installed.)", "Preparing to unpack .../htop_3.3.0-4build1_amd64.deb ...", "Unpacking htop (3.3.0-4build1) ...", "Setting up htop (3.3.0-4build1) ...", "", "Pending kernel upgrade!", "Running kernel version:", "  6.8.0-35-generic", "Diagnostics:", "  The currently running kernel version is not the expected kernel version 6.8.0-142-generic.", "", "Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.", "", "Restarting services...", "", "Service restarts being deferred:", " /etc/needrestart/restart.d/dbus.service", " systemctl restart docker.service", " systemctl restart getty@tty1.service", " systemctl restart systemd-logind.service", " systemctl restart unattended-upgrades.service", "", "No containers need to be restarted.", "", "User sessions running outdated binaries:", " student @ session #1: sshd[1196,1254]", " student @ session #2: sshd[1198,1255]", " student @ user manager service: systemd[1202]", "", "No VM guests are running outdated hypervisor (qemu) binaries on this host."]}
+2026-09-25 20:12:54,061 p=99345 u=student n=ansible INFO| TASK [Копирование конфиг файла] *********************************************************************************
+2026-09-25 20:12:54,062 p=99345 u=student n=ansible INFO| task path: /home/student/ansible-lab/playbooks/setup_gate.yaml:22
+2026-09-25 20:12:55,938 p=99345 u=student n=ansible INFO| changed: [gate-1] => {"changed": true, "checksum": "a2a7e1857040ece138ba9cf93446e0e6992cf335", "dest": "/home/admin_user/my_config.conf", "gid": 1003, "group": "admin_user", "md5sum": "5e9b13ce8f6c99f3f510756be58d15fe", "mode": "0644", "owner": "admin_user", "size": 6, "src": "/home/ansuser/.ansible/tmp/ansible-tmp-1790356374.11394-99736-117703942553665/.source.conf", "state": "file", "uid": 1002}
+2026-09-25 20:12:55,975 p=99345 u=student n=ansible INFO| changed: [server-1] => {"changed": true, "checksum": "a2a7e1857040ece138ba9cf93446e0e6992cf335", "dest": "/home/admin_user/my_config.conf", "gid": 1002, "group": "admin_user", "md5sum": "5e9b13ce8f6c99f3f510756be58d15fe", "mode": "0644", "owner": "admin_user", "size": 6, "src": "/home/ansuser/.ansible/tmp/ansible-tmp-1790356374.1404471-99737-167656996062296/.source.conf", "state": "file", "uid": 1002}
+2026-09-25 20:12:55,977 p=99345 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 20:12:55,977 p=99345 u=student n=ansible INFO| gate-1                     : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:12:55,977 p=99345 u=student n=ansible INFO| server-1                   : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:19:28,595 p=102132 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 20:19:28,604 p=102132 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 20:19:31,424 p=102132 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:19:31,463 p=102132 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:19:31,471 p=102132 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 20:19:32,705 p=102132 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:19:32,742 p=102132 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:19:32,771 p=102132 u=student n=ansible INFO| TASK [Установка htop] *******************************************************************************************
+2026-09-25 20:19:35,086 p=102132 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:19:35,218 p=102132 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:19:35,231 p=102132 u=student n=ansible INFO| TASK [Копирование конфиг файла] *********************************************************************************
+2026-09-25 20:19:37,257 p=102132 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:19:37,267 p=102132 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:19:37,270 p=102132 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 20:19:37,270 p=102132 u=student n=ansible INFO| gate-1                     : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:19:37,271 p=102132 u=student n=ansible INFO| server-1                   : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:21:33,987 p=103007 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: The command exited with a non-zero return code.
+Origin: <adhoc 'command' task>
+
+{'action': 'command', 'args': {'_raw_params': 'kill -9 9999'}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-09-25 20:21:33,988 p=103007 u=student n=ansible INFO| gate-1 | FAILED | rc=1 >>
+kill: (9999): No such processThe command exited with a non-zero return code.
+
+2026-09-25 20:32:51,948 p=106773 u=student n=ansible INFO| Using /home/student/ansible-lab/ansible.cfg as config file
+2026-09-25 20:32:52,444 p=106773 u=student n=ansible INFO| PLAY [Настройка серверка (пользователь, пакеты и конфиг)] *******************************************************
+2026-09-25 20:32:52,453 p=106773 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-09-25 20:32:55,365 p=106773 u=student n=ansible INFO| ok: [server-1]
+2026-09-25 20:32:55,423 p=106773 u=student n=ansible INFO| ok: [gate-1]
+2026-09-25 20:32:55,434 p=106773 u=student n=ansible INFO| TASK [Создание пользователя admin_user] *************************************************************************
+2026-09-25 20:32:56,481 p=106773 u=student n=ansible INFO| ok: [server-1] => {"append": true, "changed": false, "comment": "", "group": 1002, "groups": "sudo", "home": "/home/admin_user", "move_home": false, "name": "admin_user", "shell": "/bin/bash", "state": "present", "uid": 1002}
+2026-09-25 20:32:56,526 p=106773 u=student n=ansible INFO| ok: [gate-1] => {"append": true, "changed": false, "comment": "", "group": 1003, "groups": "sudo", "home": "/home/admin_user", "move_home": false, "name": "admin_user", "shell": "/bin/bash", "state": "present", "uid": 1002}
+2026-09-25 20:32:56,582 p=106773 u=student n=ansible INFO| TASK [Установка htop] *******************************************************************************************
+2026-09-25 20:32:59,311 p=106773 u=student n=ansible INFO| ok: [gate-1] => {"cache_update_time": 1790348241, "cache_updated": false, "changed": false}
+2026-09-25 20:32:59,378 p=106773 u=student n=ansible INFO| ok: [server-1] => {"cache_update_time": 1790349859, "cache_updated": false, "changed": false}
+2026-09-25 20:32:59,391 p=106773 u=student n=ansible INFO| TASK [Копирование конфиг файла] *********************************************************************************
+2026-09-25 20:33:01,225 p=106773 u=student n=ansible INFO| ok: [gate-1] => {"changed": false, "checksum": "a2a7e1857040ece138ba9cf93446e0e6992cf335", "dest": "/home/admin_user/my_config.conf", "gid": 1003, "group": "admin_user", "mode": "0644", "owner": "admin_user", "path": "/home/admin_user/my_config.conf", "size": 6, "state": "file", "uid": 1002}
+2026-09-25 20:33:01,251 p=106773 u=student n=ansible INFO| ok: [server-1] => {"changed": false, "checksum": "a2a7e1857040ece138ba9cf93446e0e6992cf335", "dest": "/home/admin_user/my_config.conf", "gid": 1002, "group": "admin_user", "mode": "0644", "owner": "admin_user", "path": "/home/admin_user/my_config.conf", "size": 6, "state": "file", "uid": 1002}
+2026-09-25 20:33:01,254 p=106773 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-09-25 20:33:01,254 p=106773 u=student n=ansible INFO| gate-1                     : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:33:01,255 p=106773 u=student n=ansible INFO| server-1                   : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-09-25 20:43:03,938 p=110602 u=student n=ansible INFO| server-1 | CHANGED => {
+    "cache_update_time": 1790349859,
+    "cache_updated": false,
+    "changed": true,
+    "stderr": "debconf: delaying package configuration, since apt-utils is not installed\n",
+    "stderr_lines": [
+        "debconf: delaying package configuration, since apt-utils is not installed"
+    ],
+    "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following NEW packages will be installed:\n  duf\n0 upgraded, 1 newly installed, 0 to remove and 123 not upgraded.\nNeed to get 900 kB of archives.\nAfter this operation, 2351 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 duf amd64 0.8.1-1ubuntu0.24.04.3 [900 kB]\nFetched 900 kB in 3s (332 kB/s)\nSelecting previously unselected package duf.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 141195 files and directories currently installed.)\r\nPreparing to unpack .../duf_0.8.1-1ubuntu0.24.04.3_amd64.deb ...\r\nUnpacking duf (0.8.1-1ubuntu0.24.04.3) ...\r\nSetting up duf (0.8.1-1ubuntu0.24.04.3) ...\r\n\nPending kernel upgrade!\nRunning kernel version:\n  6.8.0-35-generic\nDiagnostics:\n  The currently running kernel version is not the expected kernel version 6.8.0-142-generic.\n\nRestarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.\n\nRestarting services...\n\nService restarts being deferred:\n /etc/needrestart/restart.d/dbus.service\n systemctl restart docker.service\n systemctl restart getty@tty1.service\n systemctl restart systemd-logind.service\n systemctl restart unattended-upgrades.service\n\nNo containers need to be restarted.\n\nUser sessions running outdated binaries:\n student @ session #1: sshd[1196,1254]\n student @ session #2: sshd[1198,1255]\n student @ user manager service: systemd[1202]\n\nNo VM guests are running outdated hypervisor (qemu) binaries on this host.\n",
+    "stdout_lines": [
+        "Reading package lists...",
+        "Building dependency tree...",
+        "Reading state information...",
+        "The following NEW packages will be installed:",
+        "  duf",
+        "0 upgraded, 1 newly installed, 0 to remove and 123 not upgraded.",
+        "Need to get 900 kB of archives.",
+        "After this operation, 2351 kB of additional disk space will be used.",
+        "Get:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 duf amd64 0.8.1-1ubuntu0.24.04.3 [900 kB]",
+        "Fetched 900 kB in 3s (332 kB/s)",
+        "Selecting previously unselected package duf.",
+        "(Reading database ... ",
+        "(Reading database ... 5%",
+        "(Reading database ... 10%",
+        "(Reading database ... 15%",
+        "(Reading database ... 20%",
+        "(Reading database ... 25%",
+        "(Reading database ... 30%",
+        "(Reading database ... 35%",
+        "(Reading database ... 40%",
+        "(Reading database ... 45%",
+        "(Reading database ... 50%",
+        "(Reading database ... 55%",
+        "(Reading database ... 60%",
+        "(Reading database ... 65%",
+        "(Reading database ... 70%",
+        "(Reading database ... 75%",
+        "(Reading database ... 80%",
+        "(Reading database ... 85%",
+        "(Reading database ... 90%",
+        "(Reading database ... 95%",
+        "(Reading database ... 100%",
+        "(Reading database ... 141195 files and directories currently installed.)",
+        "Preparing to unpack .../duf_0.8.1-1ubuntu0.24.04.3_amd64.deb ...",
+        "Unpacking duf (0.8.1-1ubuntu0.24.04.3) ...",
+        "Setting up duf (0.8.1-1ubuntu0.24.04.3) ...",
+        "",
+        "Pending kernel upgrade!",
+        "Running kernel version:",
+        "  6.8.0-35-generic",
+        "Diagnostics:",
+        "  The currently running kernel version is not the expected kernel version 6.8.0-142-generic.",
+        "",
+        "Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.",
+        "",
+        "Restarting services...",
+        "",
+        "Service restarts being deferred:",
+        " /etc/needrestart/restart.d/dbus.service",
+        " systemctl restart docker.service",
+        " systemctl restart getty@tty1.service",
+        " systemctl restart systemd-logind.service",
+        " systemctl restart unattended-upgrades.service",
+        "",
+        "No containers need to be restarted.",
+        "",
+        "User sessions running outdated binaries:",
+        " student @ session #1: sshd[1196,1254]",
+        " student @ session #2: sshd[1198,1255]",
+        " student @ user manager service: systemd[1202]",
+        "",
+        "No VM guests are running outdated hypervisor (qemu) binaries on this host."
+    ]
+}
+2026-09-25 20:45:44,767 p=111679 u=student n=ansible INFO| server-1 | SUCCESS => {
+    "cache_update_time": 1790349859,
+    "cache_updated": false,
+    "changed": false
+}
+2026-09-25 20:53:49,088 p=114555 u=student n=ansible INFO| server-1 | SUCCESS => {
+    "cache_update_time": 1790349859,
+    "cache_updated": false,
+    "changed": false
+}
+2026-10-01 11:01:40,059 p=8285 u=student n=ansible INFO| PLAY [Install docker on Gate] ***********************************************************************************
+2026-10-01 11:01:40,074 p=8285 u=student n=ansible INFO| TASK [Gathering Facts] ******************************************************************************************
+2026-10-01 11:01:42,296 p=8285 u=student n=ansible INFO| ok: [gate-1]
+2026-10-01 11:01:42,305 p=8285 u=student n=ansible INFO| TASK [Update apt cache and install Docker] **********************************************************************
+2026-10-01 11:03:59,044 p=8285 u=student n=ansible INFO| changed: [gate-1]
+2026-10-01 11:03:59,049 p=8285 u=student n=ansible INFO| TASK [Ensure Docker is running and enabled] *********************************************************************
+2026-10-01 11:03:59,945 p=8285 u=student n=ansible INFO| ok: [gate-1]
+2026-10-01 11:03:59,951 p=8285 u=student n=ansible INFO| TASK [Add user to docker group] *********************************************************************************
+2026-10-01 11:04:00,647 p=8285 u=student n=ansible INFO| changed: [gate-1]
+2026-10-01 11:04:00,652 p=8285 u=student n=ansible INFO| TASK [Reset SSH connection to apply group changes] **************************************************************
+2026-10-01 11:04:00,680 p=8285 u=student n=ansible INFO| TASK [Test Docker without sudo] *********************************************************************************
+2026-10-01 11:04:01,781 p=8285 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: The command exited with a non-zero return code.
+Origin: /home/student/ansible-lab/playbooks/install_docker.yaml:30:7
+
+28       meta: reset_connection
+29       
+30     - name: Test Docker without sudo
+         ^ column 7
+
+
+2026-10-01 11:04:01,782 p=8285 u=student n=ansible INFO| fatal: [gate-1]: FAILED! => {"changed": true, "cmd": ["docker", "ps"], "delta": "0:00:00.111449", "end": "2026-10-01 11:04:02.722644", "msg": "The command exited with a non-zero return code.", "rc": 1, "start": "2026-10-01 11:04:02.611195", "stderr": "permission denied while trying to connect to the docker API at unix:///var/run/docker.sock", "stderr_lines": ["permission denied while trying to connect to the docker API at unix:///var/run/docker.sock"], "stdout": "", "stdout_lines": []}
+2026-10-01 11:04:01,783 p=8285 u=student n=ansible INFO| PLAY RECAP ******************************************************************************************************
+2026-10-01 11:04:01,784 p=8285 u=student n=ansible INFO| gate-1                     : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-10-01 11:09:21,260 p=10515 u=student n=ansible INFO| gate-1 | CHANGED | rc=0 >>
+Client:
+ Version:           29.1.3
+ API version:       1.52
+ Go version:        go1.24.4
+ Git commit:        29.1.3-0ubuntu3~24.04.2
+ Built:             Wed Apr 29 16:41:06 2026
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server:
+ Engine:
+  Version:          29.1.3
+  API version:      1.52 (minimum version 1.44)
+  Go version:       go1.24.4
+  Git commit:       29.1.3-0ubuntu3~24.04.2
+  Built:            Wed Apr 29 16:41:06 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          2.2.1
+  GitCommit:        
+ runc:
+  Version:          1.3.4-0ubuntu1~24.04.1
+  GitCommit:        
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        
+
+2026-10-01 11:12:41,910 p=11715 u=student n=ansible ERROR| [ERROR]: Task failed: Module failed: The command exited with a non-zero return code.
+Origin: <adhoc 'shell' task>
+
+{'action': 'shell', 'args': {'_raw_params': 'systemctl status dockerd'}, 'timeout': 0, 'async_val': 0, 'poll': 15}
+
+
+2026-10-01 11:12:41,911 p=11715 u=student n=ansible INFO| gate-1 | FAILED | rc=4 >>
+Unit dockerd.service could not be found.The command exited with a non-zero return code.
+
+2026-10-01 11:13:52,701 p=11881 u=student n=ansible INFO| gate-1 | CHANGED | rc=0 >>
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-10-01 10:41:32 MSK; 32min ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 884 (dockerd)
+      Tasks: 9
+     Memory: 94.0M (peak: 96.1M)
+        CPU: 1.277s
+     CGroup: /system.slice/docker.service
+             └─884 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Oct 01 10:41:31 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:31.383995556+03:00" level=info msg="Restoring containers: start."
+Oct 01 10:41:31 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:31.405326192+03:00" level=info msg="Deleting nftables IPv4 rules" error="exit status 1"
+Oct 01 10:41:31 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:31.417830344+03:00" level=info msg="Deleting nftables IPv6 rules" error="exit status 1"
+Oct 01 10:41:32 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:32.309021470+03:00" level=info msg="Loading containers: done."
+Oct 01 10:41:32 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:32.330907954+03:00" level=info msg="Docker daemon" commit="29.1.3-0ubuntu3~24.04.2" containerd-snapshotter=true storage-driver=overlayfs version=29.1.3
+Oct 01 10:41:32 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:32.331399318+03:00" level=info msg="Initializing buildkit"
+Oct 01 10:41:32 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:32.360914884+03:00" level=info msg="Completed buildkit initialization"
+Oct 01 10:41:32 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:32.379764792+03:00" level=info msg="Daemon has completed initialization"
+Oct 01 10:41:32 gate.corp10.un dockerd[884]: time="2026-10-01T10:41:32.380299733+03:00" level=info msg="API listen on /run/docker.sock"
+Oct 01 10:41:32 gate.corp10.un systemd[1]: Started docker.service - Docker Application Container Engine.
+

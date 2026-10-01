@@ -1,0 +1,28 @@
+---
+- name: Настройка серверка (пользователь, пакеты и конфиг)
+  hosts: all
+  become: yes
+  
+  tasks:
+    - name: Создание пользователя admin_user
+      user:
+        name: admin_user
+        state: present
+        shell: /bin/bash
+        groups: sudo
+        append: yes
+        
+        
+    - name: Установка htop
+      package:
+        name: htop
+        state: present
+        
+        
+    - name: Копирование конфиг файла
+      copy:
+        src: ./my_config.conf
+        dest: /home/admin_user/my_config.conf
+        owner: admin_user
+        group: admin_user
+        mode: '0644'

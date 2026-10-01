@@ -1,0 +1,27 @@
+---
+- name: Install docker on Gate
+  hosts: gate-1
+  become: yes
+  
+  tasks:
+    - name: Update apt cache and install Docker
+      apt:
+        name:
+          - docker.io
+          - docker-compose-v2
+          - docker-buildx
+        state: present
+        update_cache: yes
+    
+    - name: Ensure Docker is running and enabled
+      service:
+        name: docker
+        state: started
+        enabled: yes
+        
+    - name: Add user to docker group
+      user:
+        name: student
+        groups: docker
+        append: yes
+        
