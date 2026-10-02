@@ -1,11 +1,11 @@
 # Используем официальные образ из Docker Hub
-FROM python:3.14-slim
+FROM dockerhub.timeweb.cloud/python:3.14-slim
 
 # Устанавливаем рабочую директорию в контейнере
 WORKDIR /app
 
 # Копируем requirements.txt (зависимости) для кэширования слоев
-COPY requiremenst.txt
+COPY requirements.txt .
 
 # Устанавливаем зависимости
 # RUN pip install --no-cache-dir -r requirements.txt --index-url https://pypi-mirror.gitverse.ru/simple/

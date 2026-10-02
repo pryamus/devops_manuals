@@ -9,7 +9,7 @@ services:
       - "5000"
 
   nginx:
-    image: nginx:alpine
+    image: dockerhub.timeweb.cloud/nginx:alpine
     container_name: nginx_proxy
     restart: always
     volumes:

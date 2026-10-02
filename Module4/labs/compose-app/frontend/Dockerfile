@@ -1,5 +1,5 @@
 # Официальные образ Nginx
-FROM nginx:alpine
+FROM dockerhub.timeweb.cloud/nginx:alpine
 
 # Копируем конфигурацию Nginx
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
