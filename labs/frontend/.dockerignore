@@ -1,0 +1,17 @@
+.git/
+.vscode/
+.idea/
+Dockerfile
+.gitignore
+README.md
+
+# js block
+node_modules
+npm-debug.log
+
+# py block
+*env/
+__pycache__/
+*.pyc
+
+
