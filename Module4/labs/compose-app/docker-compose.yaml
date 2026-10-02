@@ -5,6 +5,7 @@ services:
     build: ./backend
     container_name: flask_app
     restart: always
+    image: web_backend:${BACKEND_TAG:-latest}
     expose:
       - "5000"
 

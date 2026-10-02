@@ -12,7 +12,7 @@ COPY requirements.txt .
 RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt --index-url https://pypi-mirror.gitverse.ru/simple/
 
 # Копируем файлы проекта в контейнер source_path dest_path 
-COPY app.py .
+COPY . .
 
 # Открываем порт
 EXPOSE 5000
